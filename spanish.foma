@@ -1,0 +1,1448 @@
+define C [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z];
+define V [a|á|e|é|i|í|ï|j|o|ó|º|u|ú|ü|y];
+define Stem [C^<3 V C^<3]+;
+
+define GuessLexicon Stem [
+		["+V"]:["^"  á b a m o s ]		|
+		["+V"]:["^"  a b i e r t a s ]		|
+		["+V"]:["^"  a b i e r t a ]		|
+		["+V"]:["^"  a b i e r t o s ]		|
+		["+V"]:["^"  a b i e r t o ]		|
+		["+V"]:["^"  a i s ]		|
+		["+V"]:["^"  á i s ]		|
+		["+V"]:["^"  a m o s ]		|
+		["+V"]:["^"  a n ]		|
+		["+V"]:["^"  á n ]		|
+		["+V"]:["^"  á r a m o s ]		|
+		["+V"]:["^"  á r e m o s ]		|
+		["+V"]:["^"  á s e m o s ]		|
+		["+V"]:["^"  a s ]		|
+		["+V"]:["^"  á s ]		|
+		["+V"]:["^"  a ]		|
+		["+V"]:["^"  á ]		|
+		["+V"]:["^"  b a i s ]		|
+		["+V"]:["^"  b a n ]		|
+		["+V"]:["^"  b a s ]		|
+		["+V"]:["^"  b a ]		|
+		["+V"]:["^"  c á i s ]		|
+		["+V"]:["^"  c a m o s ]		|
+		["+V"]:["^"  c a n ]		|
+		["+V"]:["^"  c a s ]		|
+		["+V"]:["^"  c a ]		|
+		["+V"]:["^"  c é i s ]		|
+		["+V"]:["^"  c e m o s ]		|
+		["+V"]:["^"  c e n ]		|
+		["+V"]:["^"  c e s ]		|
+		["+V"]:["^"  c e ]		|
+		["+V"]:["^"  c é ]		|
+		["+V"]:["^"  c o ]		|
+		["+V"]:["^"  d a s ]		|
+		["+V"]:["^"  d a ]		|
+		["+V"]:["^"  d o s ]		|
+		["+V"]:["^"  d o ]		|
+		["+V"]:["^"  d r á n ]		|
+		["+V"]:["^"  d r á s ]		|
+		["+V"]:["^"  d r á ]		|
+		["+V"]:["^"  d r é i s ]		|
+		["+V"]:["^"  d r e m o s ]		|
+		["+V"]:["^"  d r é ]		|
+		["+V"]:["^"  d r í a i s ]		|
+		["+V"]:["^"  d r í a m o s ]		|
+		["+V"]:["^"  d r í a n ]		|
+		["+V"]:["^"  d r í a s ]		|
+		["+V"]:["^"  d r í a ]		|
+		["+V"]:["^"  d ]		|
+		["+V"]:["^"  e c h a s ]		|
+		["+V"]:["^"  e c h a ]		|
+		["+V"]:["^"  e c h o s ]		|
+		["+V"]:["^"  e c h o ]		|
+		["+V"]:["^"  e i s ]		|
+		["+V"]:["^"  é i s ]		|
+		["+V"]:["^"  e m o s ]		|
+		["+V"]:["^"  e n d o ]		|
+		["+V"]:["^"  e n ]		|
+		["+V"]:["^"  é n ]		|
+		["+V"]:["^"  e r a i s ]		|
+		["+V"]:["^"  é r a m o s ]		|
+		["+V"]:["^"  e r a n ]		|
+		["+V"]:["^"  e r a s ]		|
+		["+V"]:["^"  e r a ]		|
+		["+V"]:["^"  e r e i s ]		|
+		["+V"]:["^"  é r e m o s ]		|
+		["+V"]:["^"  e r e n ]		|
+		["+V"]:["^"  e r e s ]		|
+		["+V"]:["^"  e r e ]		|
+		["+V"]:["^"  e r o n ]		|
+		["+V"]:["^"  e r o ]		|
+		["+V"]:["^"  e s e i s ]		|
+		["+V"]:["^"  é s e m o s ]		|
+		["+V"]:["^"  e s e n ]		|
+		["+V"]:["^"  e s e s ]		|
+		["+V"]:["^"  e s e ]		|
+		["+V"]:["^"  e s ]		|
+		["+V"]:["^"  e ]		|
+		["+V"]:["^"  é ]		|
+		["+V"]:["^"  f u e r a i s ]		|
+		["+V"]:["^"  f u é r a m o s ]		|
+		["+V"]:["^"  f u e r a n ]		|
+		["+V"]:["^"  f u e r a s ]		|
+		["+V"]:["^"  f u e r a ]		|
+		["+V"]:["^"  f u e r e i s ]		|
+		["+V"]:["^"  f u é r e m o s ]		|
+		["+V"]:["^"  f u e r e n ]		|
+		["+V"]:["^"  f u e r e s ]		|
+		["+V"]:["^"  f u e r e ]		|
+		["+V"]:["^"  f u e r o n ]		|
+		["+V"]:["^"  f u e s e i s ]		|
+		["+V"]:["^"  f u é s e m o s ]		|
+		["+V"]:["^"  f u e s e n ]		|
+		["+V"]:["^"  f u e s e s ]		|
+		["+V"]:["^"  f u e s e ]		|
+		["+V"]:["^"  f u e ]		|
+		["+V"]:["^"  f u i m o s ]		|
+		["+V"]:["^"  f u i s t e i s ]		|
+		["+V"]:["^"  f u i s t e ]		|
+		["+V"]:["^"  f u i ]		|
+		["+V"]:["^"  g á i s ]		|
+		["+V"]:["^"  g a m o s ]		|
+		["+V"]:["^"  g a n ]		|
+		["+V"]:["^"  g a s ]		|
+		["+V"]:["^"  g a ]		|
+		["+V"]:["^"  g o ]		|
+		["+V"]:["^"  h u e s a n ]		|
+		["+V"]:["^"  h u e s a s ]		|
+		["+V"]:["^"  h u e s a ]		|
+		["+V"]:["^"  h u e s e n ]		|
+		["+V"]:["^"  h u e s e s ]		|
+		["+V"]:["^"  h u e s e ]		|
+		["+V"]:["^"  h u e s o ]		|
+		["+V"]:["^"  í a i s ]		|
+		["+V"]:["^"  i á i s ]		|
+		["+V"]:["^"  i a m o s ]		|
+		["+V"]:["^"  í a m o s ]		|
+		["+V"]:["^"  í a n ]		|
+		["+V"]:["^"  í a s ]		|
+		["+V"]:["^"  í a ]		|
+		["+V"]:["^"  i b á i s ]		|
+		["+V"]:["^"  i b a m o s ]		|
+		["+V"]:["^"  í b a m o s ]		|
+		["+V"]:["^"  i b a n ]		|
+		["+V"]:["^"  i b a s ]		|
+		["+V"]:["^"  i b a ]		|
+		["+V"]:["^"  i b e n ]		|
+		["+V"]:["^"  i b e s ]		|
+		["+V"]:["^"  i b e ]		|
+		["+V"]:["^"  i b i e n d o ]		|
+		["+V"]:["^"  i b i e r a i s ]		|
+		["+V"]:["^"  i b i é r a m o s ]		|
+		["+V"]:["^"  i b i e r a n ]		|
+		["+V"]:["^"  i b i e r a s ]		|
+		["+V"]:["^"  i b i e r a ]		|
+		["+V"]:["^"  i b i e r e i s ]		|
+		["+V"]:["^"  i b i é r e m o s ]		|
+		["+V"]:["^"  i b i e r e n ]		|
+		["+V"]:["^"  i b i e r e s ]		|
+		["+V"]:["^"  i b i e r e ]		|
+		["+V"]:["^"  i b i e r o n ]		|
+		["+V"]:["^"  i b i e s e i s ]		|
+		["+V"]:["^"  i b i é s e m o s ]		|
+		["+V"]:["^"  i b i e s e n ]		|
+		["+V"]:["^"  i b i e s e s ]		|
+		["+V"]:["^"  i b i e s e ]		|
+		["+V"]:["^"  i b i ó ]		|
+		["+V"]:["^"  i b o ]		|
+		["+V"]:["^"  i c e n ]		|
+		["+V"]:["^"  í c e n ]		|
+		["+V"]:["^"  i c e s ]		|
+		["+V"]:["^"  í c e s ]		|
+		["+V"]:["^"  i c e ]		|
+		["+V"]:["^"  í c e ]		|
+		["+V"]:["^"  i c h a s ]		|
+		["+V"]:["^"  i c h a ]		|
+		["+V"]:["^"  i c h o s ]		|
+		["+V"]:["^"  i c h o ]		|
+		["+V"]:["^"  i c i e n d o ]		|
+		["+V"]:["^"  i c i e r a i s ]		|
+		["+V"]:["^"  i c i é r a m o s ]		|
+		["+V"]:["^"  i c i e r a n ]		|
+		["+V"]:["^"  i c i e r a s ]		|
+		["+V"]:["^"  i c i e r a ]		|
+		["+V"]:["^"  i c i e r e i s ]		|
+		["+V"]:["^"  i c i é r e m o s ]		|
+		["+V"]:["^"  i c i e r e n ]		|
+		["+V"]:["^"  i c i e r e s ]		|
+		["+V"]:["^"  i c i e r e ]		|
+		["+V"]:["^"  i c i e r o n ]		|
+		["+V"]:["^"  i c i e s e i s ]		|
+		["+V"]:["^"  i c i é s e m o s ]		|
+		["+V"]:["^"  i c i e s e n ]		|
+		["+V"]:["^"  i c i e s e s ]		|
+		["+V"]:["^"  i c i e s e ]		|
+		["+V"]:["^"  i c i m o s ]		|
+		["+V"]:["^"  i c i s t e i s ]		|
+		["+V"]:["^"  i c i s t e ]		|
+		["+V"]:["^"  i d á i s ]		|
+		["+V"]:["^"  i d a m o s ]		|
+		["+V"]:["^"  i d a n ]		|
+		["+V"]:["^"  i d a s ]		|
+		["+V"]:["^"  í d a s ]		|
+		["+V"]:["^"  i d a ]		|
+		["+V"]:["^"  í d a ]		|
+		["+V"]:["^"  i d e n ]		|
+		["+V"]:["^"  i d e s ]		|
+		["+V"]:["^"  i d e ]		|
+		["+V"]:["^"  i d i e n d o ]		|
+		["+V"]:["^"  i d i e r a i s ]		|
+		["+V"]:["^"  i d i é r a m o s ]		|
+		["+V"]:["^"  i d i e r a n ]		|
+		["+V"]:["^"  i d i e r a s ]		|
+		["+V"]:["^"  i d i e r a ]		|
+		["+V"]:["^"  i d i e r e i s ]		|
+		["+V"]:["^"  i d i é r e m o s ]		|
+		["+V"]:["^"  i d i e r e n ]		|
+		["+V"]:["^"  i d i e r e s ]		|
+		["+V"]:["^"  i d i e r e ]		|
+		["+V"]:["^"  i d i e r o n ]		|
+		["+V"]:["^"  i d i e s e i s ]		|
+		["+V"]:["^"  i d i é s e m o s ]		|
+		["+V"]:["^"  i d i e s e n ]		|
+		["+V"]:["^"  i d i e s e s ]		|
+		["+V"]:["^"  i d i e s e ]		|
+		["+V"]:["^"  i d i ó ]		|
+		["+V"]:["^"  i d o s ]		|
+		["+V"]:["^"  í d o s ]		|
+		["+V"]:["^"  i d o ]		|
+		["+V"]:["^"  í d o ]		|
+		["+V"]:["^"  i e b l a n ]		|
+		["+V"]:["^"  i e b l a s ]		|
+		["+V"]:["^"  i e b l a ]		|
+		["+V"]:["^"  i e b l e n ]		|
+		["+V"]:["^"  i e b l e s ]		|
+		["+V"]:["^"  i e b l e ]		|
+		["+V"]:["^"  i e b l o ]		|
+		["+V"]:["^"  i e b r a n ]		|
+		["+V"]:["^"  i e b r a s ]		|
+		["+V"]:["^"  i e b r a ]		|
+		["+V"]:["^"  i e b r e n ]		|
+		["+V"]:["^"  i e b r e s ]		|
+		["+V"]:["^"  i e b r e ]		|
+		["+V"]:["^"  i e b r o ]		|
+		["+V"]:["^"  i e c e n ]		|
+		["+V"]:["^"  i e c e s ]		|
+		["+V"]:["^"  i e c e ]		|
+		["+V"]:["^"  i e d r a n ]		|
+		["+V"]:["^"  i e d r a s ]		|
+		["+V"]:["^"  i e d r a ]		|
+		["+V"]:["^"  i e d r e n ]		|
+		["+V"]:["^"  i e d r e s ]		|
+		["+V"]:["^"  i e d r e ]		|
+		["+V"]:["^"  i e d r o ]		|
+		["+V"]:["^"  i e g a n ]		|
+		["+V"]:["^"  i e g a s ]		|
+		["+V"]:["^"  i e g a ]		|
+		["+V"]:["^"  i e g o ]		|
+		["+V"]:["^"  i e g u e n ]		|
+		["+V"]:["^"  i e g u e s ]		|
+		["+V"]:["^"  i e g u e ]		|
+		["+V"]:["^"  i e m b l a n ]		|
+		["+V"]:["^"  i e m b l a s ]		|
+		["+V"]:["^"  i e m b l a ]		|
+		["+V"]:["^"  i e m b l e n ]		|
+		["+V"]:["^"  i e m b l e s ]		|
+		["+V"]:["^"  i e m b l e ]		|
+		["+V"]:["^"  i e m b l o ]		|
+		["+V"]:["^"  i e m b r a n ]		|
+		["+V"]:["^"  i e m b r a s ]		|
+		["+V"]:["^"  i e m b r a ]		|
+		["+V"]:["^"  i e m b r e n ]		|
+		["+V"]:["^"  i e m b r e s ]		|
+		["+V"]:["^"  i e m b r e ]		|
+		["+V"]:["^"  i e m b r o ]		|
+		["+V"]:["^"  i e n c e n ]		|
+		["+V"]:["^"  i e n c e s ]		|
+		["+V"]:["^"  i e n c e ]		|
+		["+V"]:["^"  i e n d a n ]		|
+		["+V"]:["^"  i e n d a s ]		|
+		["+V"]:["^"  i e n d a ]		|
+		["+V"]:["^"  i e n d e n ]		|
+		["+V"]:["^"  i e n d e s ]		|
+		["+V"]:["^"  i e n d e ]		|
+		["+V"]:["^"  i e n d o ]		|
+		["+V"]:["^"  i e n e n ]		|
+		["+V"]:["^"  i e n e s ]		|
+		["+V"]:["^"  i e n e ]		|
+		["+V"]:["^"  i e n s a n ]		|
+		["+V"]:["^"  i e n s a s ]		|
+		["+V"]:["^"  i e n s a ]		|
+		["+V"]:["^"  i e n s e n ]		|
+		["+V"]:["^"  i e n s e s ]		|
+		["+V"]:["^"  i e n s e ]		|
+		["+V"]:["^"  i e n s o ]		|
+		["+V"]:["^"  i e n t a n ]		|
+		["+V"]:["^"  i e n t a s ]		|
+		["+V"]:["^"  i e n t a ]		|
+		["+V"]:["^"  i e n t e n ]		|
+		["+V"]:["^"  i e n t e s ]		|
+		["+V"]:["^"  i e n t e ]		|
+		["+V"]:["^"  i e n t o ]		|
+		["+V"]:["^"  í e n ]		|
+		["+V"]:["^"  i e n z a n ]		|
+		["+V"]:["^"  i e n z a s ]		|
+		["+V"]:["^"  i e n z a ]		|
+		["+V"]:["^"  i e n z o ]		|
+		["+V"]:["^"  i e r a i s ]		|
+		["+V"]:["^"  i é r a m o s ]		|
+		["+V"]:["^"  i e r a n ]		|
+		["+V"]:["^"  i e r a s ]		|
+		["+V"]:["^"  i e r a ]		|
+		["+V"]:["^"  i e r b a n ]		|
+		["+V"]:["^"  i e r b a s ]		|
+		["+V"]:["^"  i e r b a ]		|
+		["+V"]:["^"  i e r b e n ]		|
+		["+V"]:["^"  i e r b e s ]		|
+		["+V"]:["^"  i e r b e ]		|
+		["+V"]:["^"  i e r b o ]		|
+		["+V"]:["^"  i e r e i s ]		|
+		["+V"]:["^"  i é r e m o s ]		|
+		["+V"]:["^"  i e r e n ]		|
+		["+V"]:["^"  i e r e s ]		|
+		["+V"]:["^"  i e r e ]		|
+		["+V"]:["^"  i e r n a n ]		|
+		["+V"]:["^"  i e r n a s ]		|
+		["+V"]:["^"  i e r n a ]		|
+		["+V"]:["^"  i e r n e n ]		|
+		["+V"]:["^"  i e r n e s ]		|
+		["+V"]:["^"  i e r n e ]		|
+		["+V"]:["^"  i e r n o ]		|
+		["+V"]:["^"  i e r o n ]		|
+		["+V"]:["^"  i e r o ]		|
+		["+V"]:["^"  i e r r a n ]		|
+		["+V"]:["^"  i e r r a s ]		|
+		["+V"]:["^"  i e r r a ]		|
+		["+V"]:["^"  i e r r e n ]		|
+		["+V"]:["^"  i e r r e s ]		|
+		["+V"]:["^"  i e r r e ]		|
+		["+V"]:["^"  i e r r o ]		|
+		["+V"]:["^"  i e r t a n ]		|
+		["+V"]:["^"  i e r t a s ]		|
+		["+V"]:["^"  i e r t a ]		|
+		["+V"]:["^"  i e r t e n ]		|
+		["+V"]:["^"  i e r t e s ]		|
+		["+V"]:["^"  i e r t e ]		|
+		["+V"]:["^"  i e r t o ]		|
+		["+V"]:["^"  i e r v a n ]		|
+		["+V"]:["^"  i e r v a s ]		|
+		["+V"]:["^"  i e r v a ]		|
+		["+V"]:["^"  i e r v e n ]		|
+		["+V"]:["^"  i e r v e s ]		|
+		["+V"]:["^"  i e r v e ]		|
+		["+V"]:["^"  i e r v o ]		|
+		["+V"]:["^"  i e s a n ]		|
+		["+V"]:["^"  i e s a s ]		|
+		["+V"]:["^"  i e s a ]		|
+		["+V"]:["^"  i e s e i s ]		|
+		["+V"]:["^"  i é s e m o s ]		|
+		["+V"]:["^"  i e s e n ]		|
+		["+V"]:["^"  i e s e s ]		|
+		["+V"]:["^"  i e s e ]		|
+		["+V"]:["^"  i e s o ]		|
+		["+V"]:["^"  i e s t a n ]		|
+		["+V"]:["^"  i e s t a s ]		|
+		["+V"]:["^"  i e s t a ]		|
+		["+V"]:["^"  i e s t e n ]		|
+		["+V"]:["^"  i e s t e s ]		|
+		["+V"]:["^"  i e s t e ]		|
+		["+V"]:["^"  i e s t o ]		|
+		["+V"]:["^"  í e s ]		|
+		["+V"]:["^"  i e t a n ]		|
+		["+V"]:["^"  i e t a s ]		|
+		["+V"]:["^"  i e t a ]		|
+		["+V"]:["^"  i e t e n ]		|
+		["+V"]:["^"  i e t e s ]		|
+		["+V"]:["^"  i e t e ]		|
+		["+V"]:["^"  i e t o ]		|
+		["+V"]:["^"  í e ]		|
+		["+V"]:["^"  i e z a n ]		|
+		["+V"]:["^"  i e z a s ]		|
+		["+V"]:["^"  i e z a ]		|
+		["+V"]:["^"  i e z o ]		|
+		["+V"]:["^"  i g á i s ]		|
+		["+V"]:["^"  i g a m o s ]		|
+		["+V"]:["^"  i g a n ]		|
+		["+V"]:["^"  í g a n ]		|
+		["+V"]:["^"  i g a s ]		|
+		["+V"]:["^"  í g a s ]		|
+		["+V"]:["^"  i g a ]		|
+		["+V"]:["^"  í g a ]		|
+		["+V"]:["^"  i g e n ]		|
+		["+V"]:["^"  i g e s ]		|
+		["+V"]:["^"  i g e ]		|
+		["+V"]:["^"  i g i e n d o ]		|
+		["+V"]:["^"  i g i e r a i s ]		|
+		["+V"]:["^"  i g i é r a m o s ]		|
+		["+V"]:["^"  i g i e r a n ]		|
+		["+V"]:["^"  i g i e r a s ]		|
+		["+V"]:["^"  i g i e r a ]		|
+		["+V"]:["^"  i g i e r e i s ]		|
+		["+V"]:["^"  i g i é r e m o s ]		|
+		["+V"]:["^"  i g i e r e n ]		|
+		["+V"]:["^"  i g i e r e s ]		|
+		["+V"]:["^"  i g i e r e ]		|
+		["+V"]:["^"  i g i e r o n ]		|
+		["+V"]:["^"  i g i e s e i s ]		|
+		["+V"]:["^"  i g i é s e m o s ]		|
+		["+V"]:["^"  i g i e s e n ]		|
+		["+V"]:["^"  i g i e s e s ]		|
+		["+V"]:["^"  i g i e s e ]		|
+		["+V"]:["^"  i g i ó ]		|
+		["+V"]:["^"  i g o ]		|
+		["+V"]:["^"  í g o ]		|
+		["+V"]:["^"  i g u e n ]		|
+		["+V"]:["^"  í g u e n ]		|
+		["+V"]:["^"  i g u e s ]		|
+		["+V"]:["^"  í g u e s ]		|
+		["+V"]:["^"  i g u e ]		|
+		["+V"]:["^"  í g u e ]		|
+		["+V"]:["^"  i g u i e n d o ]		|
+		["+V"]:["^"  i g u i e r a i s ]		|
+		["+V"]:["^"  i g u i é r a m o s ]		|
+		["+V"]:["^"  i g u i e r a n ]		|
+		["+V"]:["^"  i g u i e r a s ]		|
+		["+V"]:["^"  i g u i e r a ]		|
+		["+V"]:["^"  i g u i e r e i s ]		|
+		["+V"]:["^"  i g u i é r e m o s ]		|
+		["+V"]:["^"  i g u i e r e n ]		|
+		["+V"]:["^"  i g u i e r e s ]		|
+		["+V"]:["^"  i g u i e r e ]		|
+		["+V"]:["^"  i g u i e r o n ]		|
+		["+V"]:["^"  i g u i e s e i s ]		|
+		["+V"]:["^"  i g u i é s e m o s ]		|
+		["+V"]:["^"  i g u i e s e n ]		|
+		["+V"]:["^"  i g u i e s e s ]		|
+		["+V"]:["^"  i g u i e s e ]		|
+		["+V"]:["^"  i g u i ó ]		|
+		["+V"]:["^"  i j á i s ]		|
+		["+V"]:["^"  i j a m o s ]		|
+		["+V"]:["^"  i j a n ]		|
+		["+V"]:["^"  i j a s ]		|
+		["+V"]:["^"  i j a ]		|
+		["+V"]:["^"  i j e r a i s ]		|
+		["+V"]:["^"  i j é r a m o s ]		|
+		["+V"]:["^"  i j e r a n ]		|
+		["+V"]:["^"  i j e r a s ]		|
+		["+V"]:["^"  i j e r a ]		|
+		["+V"]:["^"  i j e r e i s ]		|
+		["+V"]:["^"  i j é r e m o s ]		|
+		["+V"]:["^"  i j e r e n ]		|
+		["+V"]:["^"  i j e r e s ]		|
+		["+V"]:["^"  i j e r e ]		|
+		["+V"]:["^"  i j e r o n ]		|
+		["+V"]:["^"  i j e s e i s ]		|
+		["+V"]:["^"  i j é s e m o s ]		|
+		["+V"]:["^"  i j e s e n ]		|
+		["+V"]:["^"  i j e s e s ]		|
+		["+V"]:["^"  i j e s e ]		|
+		["+V"]:["^"  i j e ]		|
+		["+V"]:["^"  i j i m o s ]		|
+		["+V"]:["^"  i j i s t e i s ]		|
+		["+V"]:["^"  i j i s t e ]		|
+		["+V"]:["^"  i j o ]		|
+		["+V"]:["^"  í l a n ]		|
+		["+V"]:["^"  í l a s ]		|
+		["+V"]:["^"  í l a ]		|
+		["+V"]:["^"  í l e n ]		|
+		["+V"]:["^"  í l e s ]		|
+		["+V"]:["^"  í l e ]		|
+		["+V"]:["^"  í l o ]		|
+		["+V"]:["^"  í m a n ]		|
+		["+V"]:["^"  í m a s ]		|
+		["+V"]:["^"  í m a ]		|
+		["+V"]:["^"  í m e n ]		|
+		["+V"]:["^"  í m e s ]		|
+		["+V"]:["^"  í m e ]		|
+		["+V"]:["^"  i m o s ]		|
+		["+V"]:["^"  í m o s ]		|
+		["+V"]:["^"  í m o ]		|
+		["+V"]:["^"  i ñ á i s ]		|
+		["+V"]:["^"  i ñ a m o s ]		|
+		["+V"]:["^"  i ñ a n ]		|
+		["+V"]:["^"  i ñ a s ]		|
+		["+V"]:["^"  i ñ a ]		|
+		["+V"]:["^"  í n c a n ]		|
+		["+V"]:["^"  í n c a s ]		|
+		["+V"]:["^"  í n c a ]		|
+		["+V"]:["^"  i n c h á i s ]		|
+		["+V"]:["^"  i n c h a m o s ]		|
+		["+V"]:["^"  i n c h a n ]		|
+		["+V"]:["^"  i n c h a s ]		|
+		["+V"]:["^"  i n c h a ]		|
+		["+V"]:["^"  i n c h e n ]		|
+		["+V"]:["^"  i n c h e s ]		|
+		["+V"]:["^"  i n c h e ]		|
+		["+V"]:["^"  i n c h i e n d o ]		|
+		["+V"]:["^"  i n c h i e r a i s ]		|
+		["+V"]:["^"  i n c h i e r a n ]		|
+		["+V"]:["^"  i n c h i e r a s ]		|
+		["+V"]:["^"  i n c h i e r a ]		|
+		["+V"]:["^"  i n c h i e r e i s ]		|
+		["+V"]:["^"  i n c h i e r e n ]		|
+		["+V"]:["^"  i n c h i e r e s ]		|
+		["+V"]:["^"  i n c h i e r e ]		|
+		["+V"]:["^"  i n c h i e r o n ]		|
+		["+V"]:["^"  i n c h i e s e i s ]		|
+		["+V"]:["^"  i n c h i e s e n ]		|
+		["+V"]:["^"  i n c h i e s e s ]		|
+		["+V"]:["^"  i n c h i e s e ]		|
+		["+V"]:["^"  i n c h i ó ]		|
+		["+V"]:["^"  i n c h o ]		|
+		["+V"]:["^"  í n c o ]		|
+		["+V"]:["^"  i n d á i s ]		|
+		["+V"]:["^"  i n d a m o s ]		|
+		["+V"]:["^"  i n d a n ]		|
+		["+V"]:["^"  i n d a s ]		|
+		["+V"]:["^"  i n d a ]		|
+		["+V"]:["^"  i n d e n ]		|
+		["+V"]:["^"  i n d e s ]		|
+		["+V"]:["^"  i n d e ]		|
+		["+V"]:["^"  i n d i e n d o ]		|
+		["+V"]:["^"  i n d i e r a i s ]		|
+		["+V"]:["^"  i n d i é r a m o s ]		|
+		["+V"]:["^"  i n d i e r a n ]		|
+		["+V"]:["^"  i n d i e r a s ]		|
+		["+V"]:["^"  i n d i e r a ]		|
+		["+V"]:["^"  i n d i e r e i s ]		|
+		["+V"]:["^"  i n d i é r e m o s ]		|
+		["+V"]:["^"  i n d i e r e n ]		|
+		["+V"]:["^"  i n d i e r e s ]		|
+		["+V"]:["^"  i n d i e r e ]		|
+		["+V"]:["^"  i n d i e r o n ]		|
+		["+V"]:["^"  i n d i e s e i s ]		|
+		["+V"]:["^"  i n d i é s e m o s ]		|
+		["+V"]:["^"  i n d i e s e n ]		|
+		["+V"]:["^"  i n d i e s e s ]		|
+		["+V"]:["^"  i n d i e s e ]		|
+		["+V"]:["^"  i n d i ó ]		|
+		["+V"]:["^"  i n d o ]		|
+		["+V"]:["^"  i ñ e n d o ]		|
+		["+V"]:["^"  i ñ e n ]		|
+		["+V"]:["^"  i ñ e r a i s ]		|
+		["+V"]:["^"  i ñ é r a m o s ]		|
+		["+V"]:["^"  i ñ e r a n ]		|
+		["+V"]:["^"  i ñ e r a s ]		|
+		["+V"]:["^"  i ñ e r a ]		|
+		["+V"]:["^"  i ñ e r e i s ]		|
+		["+V"]:["^"  i ñ é r e m o s ]		|
+		["+V"]:["^"  i ñ e r e n ]		|
+		["+V"]:["^"  i ñ e r e s ]		|
+		["+V"]:["^"  i ñ e r e ]		|
+		["+V"]:["^"  i ñ e r o n ]		|
+		["+V"]:["^"  i ñ e s e i s ]		|
+		["+V"]:["^"  i ñ é s e m o s ]		|
+		["+V"]:["^"  i ñ e s e n ]		|
+		["+V"]:["^"  i ñ e s e s ]		|
+		["+V"]:["^"  i ñ e s e ]		|
+		["+V"]:["^"  i ñ e s ]		|
+		["+V"]:["^"  i n e ]		|
+		["+V"]:["^"  i ñ e ]		|
+		["+V"]:["^"  i n i e n d o ]		|
+		["+V"]:["^"  i n i e r a i s ]		|
+		["+V"]:["^"  i n i é r a m o s ]		|
+		["+V"]:["^"  i n i e r a n ]		|
+		["+V"]:["^"  i n i e r a s ]		|
+		["+V"]:["^"  i n i e r a ]		|
+		["+V"]:["^"  i n i e r e i s ]		|
+		["+V"]:["^"  i n i é r e m o s ]		|
+		["+V"]:["^"  i n i e r e n ]		|
+		["+V"]:["^"  i n i e r e s ]		|
+		["+V"]:["^"  i n i e r e ]		|
+		["+V"]:["^"  i n i e r o n ]		|
+		["+V"]:["^"  i n i e s e i s ]		|
+		["+V"]:["^"  i n i é s e m o s ]		|
+		["+V"]:["^"  i n i e s e n ]		|
+		["+V"]:["^"  i n i e s e s ]		|
+		["+V"]:["^"  i n i e s e ]		|
+		["+V"]:["^"  i n i m o s ]		|
+		["+V"]:["^"  i n i s t e i s ]		|
+		["+V"]:["^"  i n i s t e ]		|
+		["+V"]:["^"  i n o ]		|
+		["+V"]:["^"  i ñ o ]		|
+		["+V"]:["^"  i ñ ó ]		|
+		["+V"]:["^"  í n q u e n ]		|
+		["+V"]:["^"  í n q u e s ]		|
+		["+V"]:["^"  í n q u e ]		|
+		["+V"]:["^"  i n t á i s ]		|
+		["+V"]:["^"  i n t a m o s ]		|
+		["+V"]:["^"  i n t i e n d o ]		|
+		["+V"]:["^"  i n t i e r a i s ]		|
+		["+V"]:["^"  i n t i é r a m o s ]		|
+		["+V"]:["^"  i n t i e r a n ]		|
+		["+V"]:["^"  i n t i e r a s ]		|
+		["+V"]:["^"  i n t i e r a ]		|
+		["+V"]:["^"  i n t i e r e i s ]		|
+		["+V"]:["^"  i n t i é r e m o s ]		|
+		["+V"]:["^"  i n t i e r e n ]		|
+		["+V"]:["^"  i n t i e r e s ]		|
+		["+V"]:["^"  i n t i e r e ]		|
+		["+V"]:["^"  i n t i e r o n ]		|
+		["+V"]:["^"  i n t i e s e i s ]		|
+		["+V"]:["^"  i n t i é s e m o s ]		|
+		["+V"]:["^"  i n t i e s e n ]		|
+		["+V"]:["^"  i n t i e s e s ]		|
+		["+V"]:["^"  i n t i e s e ]		|
+		["+V"]:["^"  i n t i ó ]		|
+		["+V"]:["^"  i o ]		|
+		["+V"]:["^"  í o ]		|
+		["+V"]:["^"  i ó ]		|
+		["+V"]:["^"  i r á i s ]		|
+		["+V"]:["^"  i r a m o s ]		|
+		["+V"]:["^"  i r á n ]		|
+		["+V"]:["^"  i r á s ]		|
+		["+V"]:["^"  i r á ]		|
+		["+V"]:["^"  i r é i s ]		|
+		["+V"]:["^"  i r e m o s ]		|
+		["+V"]:["^"  i r é ]		|
+		["+V"]:["^"  i r í a i s ]		|
+		["+V"]:["^"  i r í a m o s ]		|
+		["+V"]:["^"  i r í a n ]		|
+		["+V"]:["^"  i r í a s ]		|
+		["+V"]:["^"  i r í a ]		|
+		["+V"]:["^"  i r i e n d o ]		|
+		["+V"]:["^"  i r i e r a i s ]		|
+		["+V"]:["^"  i r i é r a m o s ]		|
+		["+V"]:["^"  i r i e r a n ]		|
+		["+V"]:["^"  i r i e r a s ]		|
+		["+V"]:["^"  i r i e r a ]		|
+		["+V"]:["^"  i r i e r e i s ]		|
+		["+V"]:["^"  i r i é r e m o s ]		|
+		["+V"]:["^"  i r i e r e n ]		|
+		["+V"]:["^"  i r i e r e s ]		|
+		["+V"]:["^"  i r i e r e ]		|
+		["+V"]:["^"  i r i e r o n ]		|
+		["+V"]:["^"  i r i e s e i s ]		|
+		["+V"]:["^"  i r i é s e m o s ]		|
+		["+V"]:["^"  i r i e s e n ]		|
+		["+V"]:["^"  i r i e s e s ]		|
+		["+V"]:["^"  i r i e s e ]		|
+		["+V"]:["^"  i r i ó ]		|
+		["+V"]:["^"  i r t á i s ]		|
+		["+V"]:["^"  i r t a m o s ]		|
+		["+V"]:["^"  i r t i e n d o ]		|
+		["+V"]:["^"  i r t i e r a i s ]		|
+		["+V"]:["^"  i r t i é r a m o s ]		|
+		["+V"]:["^"  i r t i e r a n ]		|
+		["+V"]:["^"  i r t i e r a s ]		|
+		["+V"]:["^"  i r t i e r a ]		|
+		["+V"]:["^"  i r t i e r e i s ]		|
+		["+V"]:["^"  i r t i é r e m o s ]		|
+		["+V"]:["^"  i r t i e r e n ]		|
+		["+V"]:["^"  i r t i e r e s ]		|
+		["+V"]:["^"  i r t i e r e ]		|
+		["+V"]:["^"  i r t i e r o n ]		|
+		["+V"]:["^"  i r t i e s e i s ]		|
+		["+V"]:["^"  i r t i é s e m o s ]		|
+		["+V"]:["^"  i r t i e s e n ]		|
+		["+V"]:["^"  i r t i e s e s ]		|
+		["+V"]:["^"  i r t i e s e ]		|
+		["+V"]:["^"  i r t i ó ]		|
+		["+V"]:["^"  i r v á i s ]		|
+		["+V"]:["^"  i r v a m o s ]		|
+		["+V"]:["^"  i r v a n ]		|
+		["+V"]:["^"  i r v a s ]		|
+		["+V"]:["^"  i r v a ]		|
+		["+V"]:["^"  i r v e n ]		|
+		["+V"]:["^"  i r v e s ]		|
+		["+V"]:["^"  i r v e ]		|
+		["+V"]:["^"  i r v i e n d o ]		|
+		["+V"]:["^"  i r v i e r a i s ]		|
+		["+V"]:["^"  i r v i é r a m o s ]		|
+		["+V"]:["^"  i r v i e r a n ]		|
+		["+V"]:["^"  i r v i e r a s ]		|
+		["+V"]:["^"  i r v i e r a ]		|
+		["+V"]:["^"  i r v i e r e i s ]		|
+		["+V"]:["^"  i r v i é r e m o s ]		|
+		["+V"]:["^"  i r v i e r e n ]		|
+		["+V"]:["^"  i r v i e r e s ]		|
+		["+V"]:["^"  i r v i e r e ]		|
+		["+V"]:["^"  i r v i e r o n ]		|
+		["+V"]:["^"  i r v i e s e i s ]		|
+		["+V"]:["^"  i r v i é s e m o s ]		|
+		["+V"]:["^"  i r v i e s e n ]		|
+		["+V"]:["^"  i r v i e s e s ]		|
+		["+V"]:["^"  i r v i e s e ]		|
+		["+V"]:["^"  i r v i ó ]		|
+		["+V"]:["^"  i r v o ]		|
+		["+V"]:["^"  i s e ]		|
+		["+V"]:["^"  i s i e r a i s ]		|
+		["+V"]:["^"  i s i é r a m o s ]		|
+		["+V"]:["^"  i s i e r a n ]		|
+		["+V"]:["^"  i s i e r a s ]		|
+		["+V"]:["^"  i s i e r a ]		|
+		["+V"]:["^"  i s i e r e i s ]		|
+		["+V"]:["^"  i s i é r e m o s ]		|
+		["+V"]:["^"  i s i e r e n ]		|
+		["+V"]:["^"  i s i e r e s ]		|
+		["+V"]:["^"  i s i e r e ]		|
+		["+V"]:["^"  i s i e r o n ]		|
+		["+V"]:["^"  i s i e s e i s ]		|
+		["+V"]:["^"  i s i é s e m o s ]		|
+		["+V"]:["^"  i s i e s e n ]		|
+		["+V"]:["^"  i s i e s e s ]		|
+		["+V"]:["^"  i s i e s e ]		|
+		["+V"]:["^"  i s i m o s ]		|
+		["+V"]:["^"  i s i s t e i s ]		|
+		["+V"]:["^"  i s i s t e ]		|
+		["+V"]:["^"  i s i t a s ]		|
+		["+V"]:["^"  i s i t a ]		|
+		["+V"]:["^"  i s i t o s ]		|
+		["+V"]:["^"  i s i t o ]		|
+		["+V"]:["^"  i s o ]		|
+		["+V"]:["^"  i s t á i s ]		|
+		["+V"]:["^"  i s t a m o s ]		|
+		["+V"]:["^"  i s t a n ]		|
+		["+V"]:["^"  i s t a s ]		|
+		["+V"]:["^"  i s t a ]		|
+		["+V"]:["^"  i s t e i s ]		|
+		["+V"]:["^"  í s t e i s ]		|
+		["+V"]:["^"  i s t e n ]		|
+		["+V"]:["^"  i s t e s ]		|
+		["+V"]:["^"  i s t e ]		|
+		["+V"]:["^"  í s t e ]		|
+		["+V"]:["^"  i s t i e n d o ]		|
+		["+V"]:["^"  i s t i e r a i s ]		|
+		["+V"]:["^"  i s t i é r a m o s ]		|
+		["+V"]:["^"  i s t i e r a n ]		|
+		["+V"]:["^"  i s t i e r a s ]		|
+		["+V"]:["^"  i s t i e r a ]		|
+		["+V"]:["^"  i s t i e r e i s ]		|
+		["+V"]:["^"  i s t i é r e m o s ]		|
+		["+V"]:["^"  i s t i e r e n ]		|
+		["+V"]:["^"  i s t i e r e s ]		|
+		["+V"]:["^"  i s t i e r e ]		|
+		["+V"]:["^"  i s t i e r o n ]		|
+		["+V"]:["^"  i s t i e s e i s ]		|
+		["+V"]:["^"  i s t i é s e m o s ]		|
+		["+V"]:["^"  i s t i e s e n ]		|
+		["+V"]:["^"  i s t i e s e s ]		|
+		["+V"]:["^"  i s t i e s e ]		|
+		["+V"]:["^"  i s t i ó ]		|
+		["+V"]:["^"  i s t o s ]		|
+		["+V"]:["^"  i s t o ]		|
+		["+V"]:["^"  i s ]		|
+		["+V"]:["^"  í s ]		|
+		["+V"]:["^"  i t a s ]		|
+		["+V"]:["^"  i t a ]		|
+		["+V"]:["^"  i t o s ]		|
+		["+V"]:["^"  i t o ]		|
+		["+V"]:["^"  i ]		|
+		["+V"]:["^"  í ]		|
+		["+V"]:["^"  í z a n ]		|
+		["+V"]:["^"  í z a s ]		|
+		["+V"]:["^"  í z a ]		|
+		["+V"]:["^"  i z o ]		|
+		["+V"]:["^"  í z o ]		|
+		["+V"]:["^"  j á i s ]		|
+		["+V"]:["^"  j a m o s ]		|
+		["+V"]:["^"  j a n ]		|
+		["+V"]:["^"  j a s ]		|
+		["+V"]:["^"  j a ]		|
+		["+V"]:["^"  j e r a i s ]		|
+		["+V"]:["^"  j é r a m o s ]		|
+		["+V"]:["^"  j e r a n ]		|
+		["+V"]:["^"  j e r a s ]		|
+		["+V"]:["^"  j e r a ]		|
+		["+V"]:["^"  j e r e i s ]		|
+		["+V"]:["^"  j é r e m o s ]		|
+		["+V"]:["^"  j e r e n ]		|
+		["+V"]:["^"  j e r e s ]		|
+		["+V"]:["^"  j e r e ]		|
+		["+V"]:["^"  j e r o n ]		|
+		["+V"]:["^"  j e s e i s ]		|
+		["+V"]:["^"  j é s e m o s ]		|
+		["+V"]:["^"  j e s e n ]		|
+		["+V"]:["^"  j e s e s ]		|
+		["+V"]:["^"  j e s e ]		|
+		["+V"]:["^"  j e ]		|
+		["+V"]:["^"  j i m o s ]		|
+		["+V"]:["^"  j i s t e i s ]		|
+		["+V"]:["^"  j i s t e ]		|
+		["+V"]:["^"  j o ]		|
+		["+V"]:["^"  m o s ]		|
+		["+V"]:["^"  n d o ]		|
+		["+V"]:["^"  n ]		|
+		["+V"]:["^"  o i s ]		|
+		["+V"]:["^"  o m o s ]		|
+		["+V"]:["^"  o n ]		|
+		["+V"]:["^"  ó n ]		|
+		["+V"]:["^"  o ]		|
+		["+V"]:["^"  ó ]		|
+		["+V"]:["^"  o y ]		|
+		["+V"]:["^"  q u é i s ]		|
+		["+V"]:["^"  q u e m o s ]		|
+		["+V"]:["^"  q u e n ]		|
+		["+V"]:["^"  q u e s ]		|
+		["+V"]:["^"  q u e ]		|
+		["+V"]:["^"  q u é ]		|
+		["+V"]:["^"  r á n ]		|
+		["+V"]:["^"  r á s ]		|
+		["+V"]:["^"  r á ]		|
+		["+V"]:["^"  r é i s ]		|
+		["+V"]:["^"  r e m o s ]		|
+		["+V"]:["^"  r é ]		|
+		["+V"]:["^"  r í a i s ]		|
+		["+V"]:["^"  r í a m o s ]		|
+		["+V"]:["^"  r í a n ]		|
+		["+V"]:["^"  r í a s ]		|
+		["+V"]:["^"  r í a ]		|
+		["+V"]:["^"  s a s ]		|
+		["+V"]:["^"  s a ]		|
+		["+V"]:["^"  s e i s ]		|
+		["+V"]:["^"  s e n ]		|
+		["+V"]:["^"  s e s ]		|
+		["+V"]:["^"  s e ]		|
+		["+V"]:["^"  s o s ]		|
+		["+V"]:["^"  s o ]		|
+		["+V"]:["^"  s t e i s ]		|
+		["+V"]:["^"  s t e ]		|
+		["+V"]:["^"  s ]		|
+		["+V"]:["^"  t a s ]		|
+		["+V"]:["^"  t a ]		|
+		["+V"]:["^"  t o s ]		|
+		["+V"]:["^"  t o ]		|
+		["+V"]:["^"  t r o q u é ]		|
+		["+V"]:["^"  ú a n ]		|
+		["+V"]:["^"  ú a s ]		|
+		["+V"]:["^"  ú a ]		|
+		["+V"]:["^"  u d r á i s ]		|
+		["+V"]:["^"  u d r a m o s ]		|
+		["+V"]:["^"  u d r a n ]		|
+		["+V"]:["^"  u d r a s ]		|
+		["+V"]:["^"  u d r a ]		|
+		["+V"]:["^"  u d r e n ]		|
+		["+V"]:["^"  u d r e s ]		|
+		["+V"]:["^"  u d r e ]		|
+		["+V"]:["^"  u d r í a i s ]		|
+		["+V"]:["^"  u d r í a m o s ]		|
+		["+V"]:["^"  u d r í a n ]		|
+		["+V"]:["^"  u d r í a s ]		|
+		["+V"]:["^"  u d r í a ]		|
+		["+V"]:["^"  u d r i d ]		|
+		["+V"]:["^"  u d r i e n d o ]		|
+		["+V"]:["^"  u d r i e r a i s ]		|
+		["+V"]:["^"  u d r i e r a n ]		|
+		["+V"]:["^"  u d r i e r a s ]		|
+		["+V"]:["^"  u d r i e r a ]		|
+		["+V"]:["^"  u d r i e r e i s ]		|
+		["+V"]:["^"  u d r i e r e n ]		|
+		["+V"]:["^"  u d r i e r e s ]		|
+		["+V"]:["^"  u d r i e r e ]		|
+		["+V"]:["^"  u d r i e r o n ]		|
+		["+V"]:["^"  u d r i e s e i s ]		|
+		["+V"]:["^"  u d r i e s e n ]		|
+		["+V"]:["^"  u d r i e s e s ]		|
+		["+V"]:["^"  u d r i e s e ]		|
+		["+V"]:["^"  u d r i m o s ]		|
+		["+V"]:["^"  u d r i ó ]		|
+		["+V"]:["^"  u d r i r á n ]		|
+		["+V"]:["^"  u d r i r á s ]		|
+		["+V"]:["^"  u d r i r á ]		|
+		["+V"]:["^"  u d r i r é i s ]		|
+		["+V"]:["^"  u d r i r e m o s ]		|
+		["+V"]:["^"  u d r i r é ]		|
+		["+V"]:["^"  u d r i r í a i s ]		|
+		["+V"]:["^"  u d r i r í a n ]		|
+		["+V"]:["^"  u d r i r í a s ]		|
+		["+V"]:["^"  u d r i r í a ]		|
+		["+V"]:["^"  u d r i r ]		|
+		["+V"]:["^"  u d r i s t e i s ]		|
+		["+V"]:["^"  u d r i s t e ]		|
+		["+V"]:["^"  u d r í s ]		|
+		["+V"]:["^"  u d r í ]		|
+		["+V"]:["^"  u d r o ]		|
+		["+V"]:["^"  u e b a n ]		|
+		["+V"]:["^"  u e b a s ]		|
+		["+V"]:["^"  u e b a ]		|
+		["+V"]:["^"  u e b e n ]		|
+		["+V"]:["^"  u e b e s ]		|
+		["+V"]:["^"  u e b e ]		|
+		["+V"]:["^"  u e b l a n ]		|
+		["+V"]:["^"  u e b l a s ]		|
+		["+V"]:["^"  u e b l a ]		|
+		["+V"]:["^"  u e b l e n ]		|
+		["+V"]:["^"  u e b l e s ]		|
+		["+V"]:["^"  u e b l e ]		|
+		["+V"]:["^"  u e b l o ]		|
+		["+V"]:["^"  u e b o ]		|
+		["+V"]:["^"  u e c a n ]		|
+		["+V"]:["^"  u e c a s ]		|
+		["+V"]:["^"  u e c a ]		|
+		["+V"]:["^"  u e c e n ]		|
+		["+V"]:["^"  u e c e s ]		|
+		["+V"]:["^"  u e c e ]		|
+		["+V"]:["^"  u e c o ]		|
+		["+V"]:["^"  u e d a n ]		|
+		["+V"]:["^"  u e d a s ]		|
+		["+V"]:["^"  u e d a ]		|
+		["+V"]:["^"  u e d e n ]		|
+		["+V"]:["^"  u e d e s ]		|
+		["+V"]:["^"  u e d e ]		|
+		["+V"]:["^"  u e d o ]		|
+		["+V"]:["^"  u e g a n ]		|
+		["+V"]:["^"  u e g a s ]		|
+		["+V"]:["^"  u e g a ]		|
+		["+V"]:["^"  u e g o ]		|
+		["+V"]:["^"  u e g u e n ]		|
+		["+V"]:["^"  u e g u e s ]		|
+		["+V"]:["^"  u e g u e ]		|
+		["+V"]:["^"  u é i s ]		|
+		["+V"]:["^"  ü é i s ]		|
+		["+V"]:["^"  u e l a n ]		|
+		["+V"]:["^"  u e l a s ]		|
+		["+V"]:["^"  u e l a ]		|
+		["+V"]:["^"  u e l d a n ]		|
+		["+V"]:["^"  u e l d a s ]		|
+		["+V"]:["^"  u e l d a ]		|
+		["+V"]:["^"  u e l d e n ]		|
+		["+V"]:["^"  u e l d e s ]		|
+		["+V"]:["^"  u e l d e ]		|
+		["+V"]:["^"  u e l d o ]		|
+		["+V"]:["^"  u e l e n ]		|
+		["+V"]:["^"  u e l e s ]		|
+		["+V"]:["^"  u e l e ]		|
+		["+V"]:["^"  u e l g a n ]		|
+		["+V"]:["^"  u e l g a s ]		|
+		["+V"]:["^"  u e l g a ]		|
+		["+V"]:["^"  u e l g o ]		|
+		["+V"]:["^"  u e l g u e n ]		|
+		["+V"]:["^"  u e l g u e s ]		|
+		["+V"]:["^"  u e l g u e ]		|
+		["+V"]:["^"  u e l l a n ]		|
+		["+V"]:["^"  u e l l a s ]		|
+		["+V"]:["^"  u e l l a ]		|
+		["+V"]:["^"  u e l l e n ]		|
+		["+V"]:["^"  u e l l e s ]		|
+		["+V"]:["^"  u e l l e ]		|
+		["+V"]:["^"  u e l l o ]		|
+		["+V"]:["^"  u e l o ]		|
+		["+V"]:["^"  u e l t a n ]		|
+		["+V"]:["^"  u e l t a s ]		|
+		["+V"]:["^"  u e l t a ]		|
+		["+V"]:["^"  u e l t e n ]		|
+		["+V"]:["^"  u e l t e s ]		|
+		["+V"]:["^"  u e l t e ]		|
+		["+V"]:["^"  u e l t o s ]		|
+		["+V"]:["^"  u e l t o ]		|
+		["+V"]:["^"  u e l v a n ]		|
+		["+V"]:["^"  u e l v a s ]		|
+		["+V"]:["^"  u e l v a ]		|
+		["+V"]:["^"  u e l v e n ]		|
+		["+V"]:["^"  u e l v e s ]		|
+		["+V"]:["^"  u e l v e ]		|
+		["+V"]:["^"  u e l v o ]		|
+		["+V"]:["^"  u e m o s ]		|
+		["+V"]:["^"  ü e m o s ]		|
+		["+V"]:["^"  u e n a n ]		|
+		["+V"]:["^"  u e ñ a n ]		|
+		["+V"]:["^"  u e n a s ]		|
+		["+V"]:["^"  u e ñ a s ]		|
+		["+V"]:["^"  u e n a ]		|
+		["+V"]:["^"  u e ñ a ]		|
+		["+V"]:["^"  ü e n c e n ]		|
+		["+V"]:["^"  ü e n c e s ]		|
+		["+V"]:["^"  ü e n c e ]		|
+		["+V"]:["^"  u e n e n ]		|
+		["+V"]:["^"  u e ñ e n ]		|
+		["+V"]:["^"  u e n e s ]		|
+		["+V"]:["^"  u e ñ e s ]		|
+		["+V"]:["^"  u e n e ]		|
+		["+V"]:["^"  u e ñ e ]		|
+		["+V"]:["^"  u e n o ]		|
+		["+V"]:["^"  u e ñ o ]		|
+		["+V"]:["^"  u e n t r a n ]		|
+		["+V"]:["^"  u e n t r a s ]		|
+		["+V"]:["^"  u e n t r a ]		|
+		["+V"]:["^"  u e n t r e n ]		|
+		["+V"]:["^"  u e n t r e s ]		|
+		["+V"]:["^"  u e n t r e ]		|
+		["+V"]:["^"  u e n t r o ]		|
+		["+V"]:["^"  u e n ]		|
+		["+V"]:["^"  ú e n ]		|
+		["+V"]:["^"  ü e n ]		|
+		["+V"]:["^"  ü e n z a n ]		|
+		["+V"]:["^"  ü e n z a s ]		|
+		["+V"]:["^"  ü e n z a ]		|
+		["+V"]:["^"  ü e n z o ]		|
+		["+V"]:["^"  u e q u e n ]		|
+		["+V"]:["^"  u e q u e s ]		|
+		["+V"]:["^"  u e q u e ]		|
+		["+V"]:["^"  u e r a n ]		|
+		["+V"]:["^"  u e r a s ]		|
+		["+V"]:["^"  u e r a ]		|
+		["+V"]:["^"  u e r c a n ]		|
+		["+V"]:["^"  u e r c a s ]		|
+		["+V"]:["^"  u e r c a ]		|
+		["+V"]:["^"  u e r c e n ]		|
+		["+V"]:["^"  u e r c e s ]		|
+		["+V"]:["^"  u e r c e ]		|
+		["+V"]:["^"  u e r c o ]		|
+		["+V"]:["^"  u e r d a n ]		|
+		["+V"]:["^"  u e r d a s ]		|
+		["+V"]:["^"  u e r d a ]		|
+		["+V"]:["^"  u e r d e n ]		|
+		["+V"]:["^"  u e r d e s ]		|
+		["+V"]:["^"  u e r d e ]		|
+		["+V"]:["^"  u e r d o ]		|
+		["+V"]:["^"  u e r e n ]		|
+		["+V"]:["^"  u e r e s ]		|
+		["+V"]:["^"  u e r e ]		|
+		["+V"]:["^"  u e r m a n ]		|
+		["+V"]:["^"  u e r m a s ]		|
+		["+V"]:["^"  u e r m a ]		|
+		["+V"]:["^"  u e r m e n ]		|
+		["+V"]:["^"  u e r m e s ]		|
+		["+V"]:["^"  u e r m e ]		|
+		["+V"]:["^"  u e r m o ]		|
+		["+V"]:["^"  u e r n a n ]		|
+		["+V"]:["^"  u e r n a s ]		|
+		["+V"]:["^"  u e r n a ]		|
+		["+V"]:["^"  u e r n e n ]		|
+		["+V"]:["^"  u e r n e s ]		|
+		["+V"]:["^"  u e r n e ]		|
+		["+V"]:["^"  u e r n o ]		|
+		["+V"]:["^"  u e r o ]		|
+		["+V"]:["^"  u e r q u e n ]		|
+		["+V"]:["^"  u e r q u e s ]		|
+		["+V"]:["^"  u e r q u e ]		|
+		["+V"]:["^"  u e r z a n ]		|
+		["+V"]:["^"  u e r z a s ]		|
+		["+V"]:["^"  u e r z a ]		|
+		["+V"]:["^"  u e r z o ]		|
+		["+V"]:["^"  u e s t a n ]		|
+		["+V"]:["^"  u e s t a s ]		|
+		["+V"]:["^"  u e s t a ]		|
+		["+V"]:["^"  u e s t e n ]		|
+		["+V"]:["^"  u e s t e s ]		|
+		["+V"]:["^"  u e s t e ]		|
+		["+V"]:["^"  u e s t o s ]		|
+		["+V"]:["^"  u e s t o ]		|
+		["+V"]:["^"  u e s t r a n ]		|
+		["+V"]:["^"  u e s t r a s ]		|
+		["+V"]:["^"  u e s t r a ]		|
+		["+V"]:["^"  u e s t r e n ]		|
+		["+V"]:["^"  u e s t r e s ]		|
+		["+V"]:["^"  u e s t r e ]		|
+		["+V"]:["^"  u e s t r o ]		|
+		["+V"]:["^"  u e s ]		|
+		["+V"]:["^"  ú e s ]		|
+		["+V"]:["^"  ü e s ]		|
+		["+V"]:["^"  u e ]		|
+		["+V"]:["^"  ú e ]		|
+		["+V"]:["^"  ü e ]		|
+		["+V"]:["^"  u é ]		|
+		["+V"]:["^"  ü é ]		|
+		["+V"]:["^"  u e v a n ]		|
+		["+V"]:["^"  u e v a s ]		|
+		["+V"]:["^"  u e v a ]		|
+		["+V"]:["^"  u e v e n ]		|
+		["+V"]:["^"  u e v e s ]		|
+		["+V"]:["^"  u e v e ]		|
+		["+V"]:["^"  u e v o ]		|
+		["+V"]:["^"  u e z a n ]		|
+		["+V"]:["^"  u e z a s ]		|
+		["+V"]:["^"  u e z a ]		|
+		["+V"]:["^"  u e z o ]		|
+		["+V"]:["^"  ú l l a n ]		|
+		["+V"]:["^"  ú l l a s ]		|
+		["+V"]:["^"  ú l l a ]		|
+		["+V"]:["^"  ú l l e n ]		|
+		["+V"]:["^"  ú l l e s ]		|
+		["+V"]:["^"  ú l l e ]		|
+		["+V"]:["^"  ú l l o ]		|
+		["+V"]:["^"  ú n a n ]		|
+		["+V"]:["^"  ú n a s ]		|
+		["+V"]:["^"  ú n a ]		|
+		["+V"]:["^"  ú n e n ]		|
+		["+V"]:["^"  ú n e s ]		|
+		["+V"]:["^"  ú n e ]		|
+		["+V"]:["^"  ú n o ]		|
+		["+V"]:["^"  ú o ]		|
+		["+V"]:["^"  u r m á i s ]		|
+		["+V"]:["^"  u r m a m o s ]		|
+		["+V"]:["^"  u r m i e n d o ]		|
+		["+V"]:["^"  u r m i e r a i s ]		|
+		["+V"]:["^"  u r m i e r a n ]		|
+		["+V"]:["^"  u r m i e r a s ]		|
+		["+V"]:["^"  u r m i e r a ]		|
+		["+V"]:["^"  u r m i e r e i s ]		|
+		["+V"]:["^"  u r m i e r e n ]		|
+		["+V"]:["^"  u r m i e r e s ]		|
+		["+V"]:["^"  u r m i e r e ]		|
+		["+V"]:["^"  u r m i e r o n ]		|
+		["+V"]:["^"  u r m i e s e i s ]		|
+		["+V"]:["^"  u r m i e s e n ]		|
+		["+V"]:["^"  u r m i e s e s ]		|
+		["+V"]:["^"  u r m i e s e ]		|
+		["+V"]:["^"  u r m i ó ]		|
+		["+V"]:["^"  u s e ]		|
+		["+V"]:["^"  u s i e r a i s ]		|
+		["+V"]:["^"  u s i é r a m o s ]		|
+		["+V"]:["^"  u s i e r a n ]		|
+		["+V"]:["^"  u s i e r a s ]		|
+		["+V"]:["^"  u s i e r a ]		|
+		["+V"]:["^"  u s i e r e i s ]		|
+		["+V"]:["^"  u s i é r e m o s ]		|
+		["+V"]:["^"  u s i e r e n ]		|
+		["+V"]:["^"  u s i e r e s ]		|
+		["+V"]:["^"  u s i e r e ]		|
+		["+V"]:["^"  u s i e r o n ]		|
+		["+V"]:["^"  u s i e s e i s ]		|
+		["+V"]:["^"  u s i é s e m o s ]		|
+		["+V"]:["^"  u s i e s e n ]		|
+		["+V"]:["^"  u s i e s e s ]		|
+		["+V"]:["^"  u s i e s e ]		|
+		["+V"]:["^"  u s i m o s ]		|
+		["+V"]:["^"  u s i s t e i s ]		|
+		["+V"]:["^"  u s i s t e ]		|
+		["+V"]:["^"  u s o ]		|
+		["+V"]:["^"  u v e ]		|
+		["+V"]:["^"  u v i e r a i s ]		|
+		["+V"]:["^"  u v i é r a m o s ]		|
+		["+V"]:["^"  u v i e r a n ]		|
+		["+V"]:["^"  u v i e r a s ]		|
+		["+V"]:["^"  u v i e r a ]		|
+		["+V"]:["^"  u v i e r e i s ]		|
+		["+V"]:["^"  u v i é r e m o s ]		|
+		["+V"]:["^"  u v i e r e n ]		|
+		["+V"]:["^"  u v i e r e s ]		|
+		["+V"]:["^"  u v i e r e ]		|
+		["+V"]:["^"  u v i e r o n ]		|
+		["+V"]:["^"  u v i e s e i s ]		|
+		["+V"]:["^"  u v i é s e m o s ]		|
+		["+V"]:["^"  u v i e s e n ]		|
+		["+V"]:["^"  u v i e s e s ]		|
+		["+V"]:["^"  u v i e s e ]		|
+		["+V"]:["^"  u v i m o s ]		|
+		["+V"]:["^"  u v i s t e i s ]		|
+		["+V"]:["^"  u v i s t e ]		|
+		["+V"]:["^"  u v o ]		|
+		["+V"]:["^"  u y á i s ]		|
+		["+V"]:["^"  u y a m o s ]		|
+		["+V"]:["^"  u y a n ]		|
+		["+V"]:["^"  u y a s ]		|
+		["+V"]:["^"  u y a ]		|
+		["+V"]:["^"  u y e n d o ]		|
+		["+V"]:["^"  u y e n ]		|
+		["+V"]:["^"  u y e r a i s ]		|
+		["+V"]:["^"  u y é r a m o s ]		|
+		["+V"]:["^"  u y e r a n ]		|
+		["+V"]:["^"  u y e r a s ]		|
+		["+V"]:["^"  u y e r a ]		|
+		["+V"]:["^"  u y e r e i s ]		|
+		["+V"]:["^"  u y é r e m o s ]		|
+		["+V"]:["^"  u y e r e n ]		|
+		["+V"]:["^"  u y e r e s ]		|
+		["+V"]:["^"  u y e r e ]		|
+		["+V"]:["^"  u y e r o n ]		|
+		["+V"]:["^"  u y e s e i s ]		|
+		["+V"]:["^"  u y é s e m o s ]		|
+		["+V"]:["^"  u y e s e n ]		|
+		["+V"]:["^"  u y e s e s ]		|
+		["+V"]:["^"  u y e s e ]		|
+		["+V"]:["^"  u y e s ]		|
+		["+V"]:["^"  u y e ]		|
+		["+V"]:["^"  u y o ]		|
+		["+V"]:["^"  u y ó ]		|
+		["+V"]:["^"  ]		|
+		["+V"]:["^"  v a i s ]		|
+		["+V"]:["^"  v a m o s ]		|
+		["+V"]:["^"  v a n ]		|
+		["+V"]:["^"  v a s ]		|
+		["+V"]:["^"  v a ]		|
+		["+V"]:["^"  v a y á i s ]		|
+		["+V"]:["^"  v a y a m o s ]		|
+		["+V"]:["^"  v a y a n ]		|
+		["+V"]:["^"  v a y a s ]		|
+		["+V"]:["^"  v a y a ]		|
+		["+V"]:["^"  v e ]		|
+		["+V"]:["^"  v o y ]		|
+		["+V"]:["^"  y á i s ]		|
+		["+V"]:["^"  y a m o s ]		|
+		["+V"]:["^"  y a n ]		|
+		["+V"]:["^"  y a s ]		|
+		["+V"]:["^"  y a ]		|
+		["+V"]:["^"  y e n d o ]		|
+		["+V"]:["^"  y e n ]		|
+		["+V"]:["^"  y e r a i s ]		|
+		["+V"]:["^"  y é r a m o s ]		|
+		["+V"]:["^"  y e r a n ]		|
+		["+V"]:["^"  y e r a s ]		|
+		["+V"]:["^"  y e r a ]		|
+		["+V"]:["^"  y e r e i s ]		|
+		["+V"]:["^"  y é r e m o s ]		|
+		["+V"]:["^"  y e r e n ]		|
+		["+V"]:["^"  y e r e s ]		|
+		["+V"]:["^"  y e r e ]		|
+		["+V"]:["^"  y e r o n ]		|
+		["+V"]:["^"  y e r r a n ]		|
+		["+V"]:["^"  y e r r a s ]		|
+		["+V"]:["^"  y e r r a ]		|
+		["+V"]:["^"  y e r r e n ]		|
+		["+V"]:["^"  y e r r e s ]		|
+		["+V"]:["^"  y e r r e ]		|
+		["+V"]:["^"  y e r r o ]		|
+		["+V"]:["^"  y e s e i s ]		|
+		["+V"]:["^"  y é s e m o s ]		|
+		["+V"]:["^"  y e s e n ]		|
+		["+V"]:["^"  y e s e s ]		|
+		["+V"]:["^"  y e s e ]		|
+		["+V"]:["^"  y e s ]		|
+		["+V"]:["^"  y e ]		|
+		["+V"]:["^"  y o ]		|
+		["+V"]:["^"  y ó ]		|
+		["+V"]:["^"  z á i s ]		|
+		["+V"]:["^"  z a m o s ]		|
+		["+V"]:["^"  z a n ]		|
+		["+V"]:["^"  z a s ]		|
+		["+V"]:["^"  z a ]		|
+		["+V"]:["^"  z c á i s ]		|
+		["+V"]:["^"  z c a m o s ]		|
+		["+V"]:["^"  z c a n ]		|
+		["+V"]:["^"  z c a s ]		|
+		["+V"]:["^"  z c a ]		|
+		["+V"]:["^"  z c o ]		|
+		["+V"]:["^"  z g á i s ]		|
+		["+V"]:["^"  z g a m o s ]		|
+		["+V"]:["^"  z g a n ]		|
+		["+V"]:["^"  z g a s ]		|
+		["+V"]:["^"  z g a ]		|
+		["+V"]:["^"  z g o ]		|
+		["+V"]:["^"  z o ]		|
+		["+V"]:["^"  z ]		|
+		["+N"]:["^"  a e s ]		|
+		["+N"]:["^"  á g e n e s ]		|
+		["+N"]:["^"  á i s ]		|
+		["+N"]:["^"  á m e n e s ]		|
+		["+N"]:["^"  á m i n e s ]		|
+		["+N"]:["^"  a ]		|
+		["+N"]:["^"  a n a ]		|
+		["+N"]:["^"  a n a s ]		|
+		["+N"]:["^"  a n e s ]		|
+		["+N"]:["^"  á n o n e s ]		|
+		["+N"]:["^"  a n o s ]		|
+		["+N"]:["^"  á r i o n e s ]		|
+		["+N"]:["^"  a s e s ]		|
+		["+N"]:["^"  a s ]		|
+		["+N"]:["^"  a v a ]		|
+		["+N"]:["^"  a v a s ]		|
+		["+N"]:["^"  a v i t s ]		|
+		["+N"]:["^"  a v o ]		|
+		["+N"]:["^"  a v o s ]		|
+		["+N"]:["^"  a y ]		|
+		["+N"]:["^"  a y s ]		|
+		["+N"]:["^"  c e s ]		|
+		["+N"]:["^"  é d i o n e s ]		|
+		["+N"]:["^"  e n d e r s ]		|
+		["+N"]:["^"  e n e s ]		|
+		["+N"]:["^"  é r m i s e s ]		|
+		["+N"]:["^"  e r ]		|
+		["+N"]:["^"  e s a ]		|
+		["+N"]:["^"  e s a s ]		|
+		["+N"]:["^"  e s e s ]		|
+		["+N"]:["^"  e s ]		|
+		["+N"]:["^"  g ]		|
+		["+N"]:["^"  g o l p e s ]		|
+		["+N"]:["^"  H z ]		|
+		["+N"]:["^"  í a c a ]		|
+		["+N"]:["^"  í a c a s ]		|
+		["+N"]:["^"  í a c o s ]		|
+		["+N"]:["^"  i e s ]		|
+		["+N"]:["^"  í e s ]		|
+		["+N"]:["^"  i l e o n e s ]		|
+		["+N"]:["^"  í m e n e s e s ]		|
+		["+N"]:["^"  í m e n e s ]		|
+		["+N"]:["^"  i n a ]		|
+		["+N"]:["^"  i n a s ]		|
+		["+N"]:["^"  i n e s ]		|
+		["+N"]:["^"  i s e s ]		|
+		["+N"]:["^"  i s ]		|
+		["+N"]:["^"  í t u s e s ]		|
+		["+N"]:["^"  l ]		|
+		["+N"]:["^"  l u m b i o ]		|
+		["+N"]:["^"  l u m b i o s ]		|
+		["+N"]:["^"  m ]		|
+		["+N"]:["^"  ]		|
+		["+N"]:["^"  ñ o s a ]		|
+		["+N"]:["^"  ñ o s a s ]		|
+		["+N"]:["^"  ñ o s o s ]		|
+		["+N"]:["^"  ó b s ]		|
+		["+N"]:["^"  o e s ]		|
+		["+N"]:["^"  o i ó n e s ]		|
+		["+N"]:["^"  o l d e r s ]		|
+		["+N"]:["^"  ó l j o s e s ]		|
+		["+N"]:["^"  ó l o n e s ]		|
+		["+N"]:["^"  ó m e n e s ]		|
+		["+N"]:["^"  o ]		|
+		["+N"]:["^"  º ]		|
+		["+N"]:["^"  o n a ]		|
+		["+N"]:["^"  o n a s ]		|
+		["+N"]:["^"  o n e s ]		|
+		["+N"]:["^"  ó n ]		|
+		["+N"]:["^"  o ó n e s ]		|
+		["+N"]:["^"  o q u e i s ]		|
+		["+N"]:["^"  o q u e r s e s ]		|
+		["+N"]:["^"  ó r d e n e s ]		|
+		["+N"]:["^"  ó r i o n e s ]		|
+		["+N"]:["^"  o r t e r s ]		|
+		["+N"]:["^"  o r u m s ]		|
+		["+N"]:["^"  o s ]		|
+		["+N"]:["^"  ó s ]		|
+		["+N"]:["^"  q u e s ]		|
+		["+N"]:["^"  s d a l g o ]		|
+		["+N"]:["^"  s e s ]		|
+		["+N"]:["^"  s h o r a ]		|
+		["+N"]:["^"  s i c o s i s ]		|
+		["+N"]:["^"  s k í e s ]		|
+		["+N"]:["^"  s k i ]		|
+		["+N"]:["^"  s k i s ]		|
+		["+N"]:["^"  s ]		|
+		["+N"]:["^"  t z ]		|
+		["+N"]:["^"  ú e s ]		|
+		["+N"]:["^"  ú m e n e s ]		|
+		["+N"]:["^"  ú m p e n e s ]		|
+		["+N"]:["^"  u m p e r s ]		|
+		["+N"]:["^"  ú n g u s e s ]		|
+		["+N"]:["^"  u n k e r s ]		|
+		["+N"]:["^"  w a t t ]		|
+		["+N"]:["^"  z ]		|
+		["+A"]:["^"  a ]		|
+		["+A"]:["^"  á m e a ]		|
+		["+A"]:["^"  á m e a s ]		|
+		["+A"]:["^"  á m e o s ]		|
+		["+A"]:["^"  a n a ]		|
+		["+A"]:["^"  a n a s ]		|
+		["+A"]:["^"  a n e s ]		|
+		["+A"]:["^"  a n o s ]		|
+		["+A"]:["^"  á p o d a ]		|
+		["+A"]:["^"  á p o d a s ]		|
+		["+A"]:["^"  á p o d o s ]		|
+		["+A"]:["^"  a s ]		|
+		["+A"]:["^"  a s a ]		|
+		["+A"]:["^"  a s a s ]		|
+		["+A"]:["^"  a s e s ]		|
+		["+A"]:["^"  c e s ]		|
+		["+A"]:["^"  e n d é s a ]		|
+		["+A"]:["^"  e n d é s a s ]		|
+		["+A"]:["^"  e n d é s e s ]		|
+		["+A"]:["^"  e s ]		|
+		["+A"]:["^"  e s a ]		|
+		["+A"]:["^"  e s a s ]		|
+		["+A"]:["^"  e s e s ]		|
+		["+A"]:["^"  é s e s ]		|
+		["+A"]:["^"  i a c a ]		|
+		["+A"]:["^"  í a c a ]		|
+		["+A"]:["^"  i a c a s ]		|
+		["+A"]:["^"  í a c a s ]		|
+		["+A"]:["^"  i a c o s ]		|
+		["+A"]:["^"  í a c o s ]		|
+		["+A"]:["^"  i c a n a ]		|
+		["+A"]:["^"  i c a n a s ]		|
+		["+A"]:["^"  i c a n o s ]		|
+		["+A"]:["^"  i e s ]		|
+		["+A"]:["^"  í g e n e s ]		|
+		["+A"]:["^"  i m a n a ]		|
+		["+A"]:["^"  í m a n a ]		|
+		["+A"]:["^"  i m a n a s ]		|
+		["+A"]:["^"  í m a n a s ]		|
+		["+A"]:["^"  i m a n o s ]		|
+		["+A"]:["^"  í m a n o s ]		|
+		["+A"]:["^"  i n a ]		|
+		["+A"]:["^"  i n a s ]		|
+		["+A"]:["^"  i n e s ]		|
+		["+A"]:["^"  i s e r a ]		|
+		["+A"]:["^"  i s e r a s ]		|
+		["+A"]:["^"  i s e r o s ]		|
+		["+A"]:["^"  i s e s ]		|
+		["+A"]:["^"  n a ]		|
+		["+A"]:["^"  n a s ]		|
+		["+A"]:["^"  ñ o ñ a ]		|
+		["+A"]:["^"  ñ o ñ a s ]		|
+		["+A"]:["^"  ñ o ñ o s ]		|
+		["+A"]:["^"  n o s ]		|
+		["+A"]:["^"  ñ u d o s a ]		|
+		["+A"]:["^"  ñ u d o s a s ]		|
+		["+A"]:["^"  ñ u d o s o s ]		|
+		["+A"]:["^"  o f i t a ]		|
+		["+A"]:["^"  o f i t a s ]		|
+		["+A"]:["^"  o f i t o s ]		|
+		["+A"]:["^"  o n a ]		|
+		["+A"]:["^"  o n a s ]		|
+		["+A"]:["^"  o n e s ]		|
+		["+A"]:["^"  o s ]		|
+		["+A"]:["^"  ó v e n e s ]		|
+		["+A"]:["^"  s ]		|
+		["+A"]:["^"  s e s ]		|
+		["+A"]:["^"  u a n d é s ]		|
+		["+A"]:["^"  u a n d e s a ]		|
+		["+A"]:["^"  u a n d e s a s ]		|
+		["+A"]:["^"  u a n d e s e s ]		|
+		["+A"]:["^"  u m a n a ]		|
+		["+A"]:["^"  u m a n a s ]		|
+		["+A"]:["^"  u m a n o s ]		|
+		["+A"]:["^"  u n e s ]		|
+		["+V"]:0		|
+		["+N"]:0		|
+		["+A"]:0];
+
+define V1Deletion  a r  -> 0 || _ "^" [  á b a m o s ];
+define V2Deletion  e a b r i r  -> 0 || _ "^" [  a b i e r t a ];
+define V3Deletion  e a b r i r  -> 0 || _ "^" [  a b i e r t a s ];
+define V4Deletion  e a b r i r  -> 0 || _ "^" [  a b i e r t o ];
+define V5Deletion  e a b r i r  -> 0 || _ "^" [  a b i e r t o s ];
+define V6Deletion  e r  -> 0 || _ "^" [  a ];
+define V7Deletion  i r  -> 0 || _ "^" [  a ];
+define V8Deletion  a r  -> 0 || _ "^" [  á i s ];
+define V9Deletion  e r  -> 0 || _ "^" [  á i s ];
+define V10Deletion  i r  -> 0 || _ "^" [  á i s ];
+define V11Deletion  r  -> 0 || _ "^" [  a i s ];
+define V12Deletion  r  -> 0 || _ "^" [  á i s ];
+define V14Deletion  e r  -> 0 || _ "^" [  a m o s ];
+define V15Deletion  i r  -> 0 || _ "^" [  a m o s ];
+define V16Deletion  r  -> 0 || _ "^" [  a m o s ];
+define V17Deletion  e r  -> 0 || _ "^" [  a n ];
+define V18Deletion  i r  -> 0 || _ "^" [  a n ];
+define V19Deletion  r  -> 0 || _ "^" [  a n ];
+define V22Deletion  a r  -> 0 || _ "^" [  á r a m o s ];
+define V23Deletion  a r  -> 0 || _ "^" [  á r e m o s ];
+define V24Deletion  r  -> 0 || _ "^" [  a ];
+define V25Deletion  a r  -> 0 || _ "^" [  á s e m o s ];
+define V26Deletion  e r  -> 0 || _ "^" [  a s ];
+define V27Deletion  i r  -> 0 || _ "^" [  a s ];
+define V28Deletion  r  -> 0 || _ "^" [  a s ];
+define Cleanup "^" -> 0;
+
+regex		GuessLexicon .o. 
+		V1Deletion .o. 
+		V2Deletion .o. 
+		V3Deletion .o. 
+		V4Deletion .o. 
+		V5Deletion .o. 
+		V6Deletion .o. 
+		V7Deletion .o. 
+		V8Deletion .o. 
+		V9Deletion .o. 
+		V10Deletion .o. 
+		V11Deletion .o. 
+		V12Deletion .o. 
+		V14Deletion .o. 
+		V15Deletion .o. 
+		V16Deletion .o. 
+		V17Deletion .o. 
+		V18Deletion .o. 
+		V19Deletion .o. 
+		V22Deletion .o. 
+		V23Deletion .o. 
+		V24Deletion .o. 
+		V25Deletion .o. 
+		V26Deletion .o. 
+		V27Deletion .o. 
+		V28Deletion .o. 
+		Cleanup;
