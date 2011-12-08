@@ -3,7 +3,7 @@
 from utility import *
 
 def articles(line):
-    columns = line.split('\t')
+    columns = line.split()
 
     wordform = columns[0]
     lemmas = columns[1:]
