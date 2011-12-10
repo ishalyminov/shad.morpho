@@ -5,12 +5,25 @@ import sys
 import pickle
 
 
+def LargestCommonPrefix(left_word, right_word):
+  largest_prefix = ''
+
+  i = 1
+  while (i <= len(right_word)):
+    prefix = right_word[:i]
+    if (False is left_word.startswith(prefix)):
+      break
+    largest_prefix = prefix
+    i += 1
+  return largest_prefix
+
+
 def LargestCommonSuffix(left_word, right_word):
   largest_suffix = ''
   i = len(right_word) - 1
   while (i >= 0):
     suffix = right_word[i:]
-    if (False == left_word.endswith(suffix)):
+    if (False is left_word.endswith(suffix)):
       break
     largest_suffix = suffix
     i -= 1
@@ -21,12 +34,26 @@ def CountCommonTailLetters(left_word, right_word):
   return len(LargestCommonSuffix(left_word, right_word))
 
 
-def DeriveLemma(target_word_form, closest_word_form, closest_lemma):
+def DeriveLemmaFirst(target_word_form, closest_word_form, closest_lemma):
   suffix = LargestCommonSuffix(target_word_form, closest_word_form);
+
   target_begin = target_word_form.rfind(suffix)
   closest_begin = closest_word_form.rfind(suffix)
+
   end = closest_lemma[closest_begin:]
   begin = target_word_form[:target_begin]
+  return begin + end
+
+
+def DeriveLemmaSecond(target_word_form, closest_word_form, closest_lemma):
+  closest_prefix = LargestCommonPrefix(closest_lemma, closest_word_form);
+  common_suffix = LargestCommonSuffix(target_word_form, closest_word_form);
+
+  target_suffix_begin = target_word_form.rfind(common_suffix)
+  begin = target_word_form[:target_suffix_begin]
+  if (len(closest_prefix) == 0):
+    raise RuntimeError("Zero lenght closes prefix")
+  end = closest_lemma[len(closest_prefix)-1:]
   return begin + end
 
 
@@ -68,7 +95,7 @@ try:
       word_form = unicode(line, 'latin-1').strip()
       closest_form = ClosestKnownWordForm(word_form, word_form_tags.keys())
       pos = word_form_tags[closest_form][1]
-      lemma = DeriveLemma(word_form, closest_form, word_form_tags[closest_form][0])
+      lemma = DeriveLemmaFirst(word_form, closest_form, word_form_tags[closest_form][0])
 
       print >> result_file, ("%s\t%s+%s") % (word_form.encode('latin-1'), lemma.encode('latin-1'), pos.encode('latin-1'))
       result_file.flush()
