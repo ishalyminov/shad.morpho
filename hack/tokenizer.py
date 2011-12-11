@@ -3,6 +3,7 @@
 
 import sys
 import pickle
+from bisect import bisect
 
 
 def LargestCommonPrefix(left_word, right_word):
@@ -57,9 +58,23 @@ def DeriveLemmaSecond(target_word_form, closest_word_form, closest_lemma):
   return begin + end
 
 
-def ClosestKnownWordForm(word_form, known_word_forms):
+def ClosestKnownWordForm(word_form, reversed_word_forms):
+  reversed_word_form = word_form[::-1]
+
+  index = bisect(reversed_word_forms, reversed_word_form)
+
   form_scores = []
-  for form in known_word_forms:
+
+  if (index - 1 >= 0):
+    form = reversed_word_forms[index-1][::-1]
+    form_scores.append((form, CountCommonTailLetters(word_form, form)))
+
+  if (index >= 0 and index < len(reversed_word_forms)):
+    form = reversed_word_forms[index][::-1]
+    form_scores.append((form, CountCommonTailLetters(word_form, form)))
+
+  if (index + 1 < len(reversed_word_forms)):
+    form = reversed_word_forms[index+1][::-1]
     form_scores.append((form, CountCommonTailLetters(word_form, form)))
 
   max_score = 0
@@ -74,32 +89,41 @@ def ClosestKnownWordForm(word_form, known_word_forms):
   return closest_form
 
 
-if (len(sys.argv) != 3):
-  print("%s <test_data_file> <result_file>") % (sys.argv[0])
-  quit()
+def main():
+  try:
+    with open('word_form_tags.pickle', 'rb') as tags_file:
+      word_form_tags = pickle.load(tags_file)
 
-try:
-  with open('word_form_tags.pickle', 'rb') as tags_file:
-    word_form_tags = pickle.load(tags_file)
+    with open('reversed_forms.pickle', 'rb') as reversed_forms_file:
+      reversed_word_forms = pickle.load(reversed_forms_file)
+  except IOError as error:
+    print "IOError: " + str(error)
+  except Exception as excp:
+    print "Exception: " + str(excp)
 
-  with open('word_forms.pickle', 'rb') as forms_file:
-    word_forms = pickle.load(forms_file)
-except IOError as error:
-  print "IOError: " + str(error)
-except Exception as excp:
-  print "Exception: " + str(excp)
+  try:
+    with open(sys.argv[1], 'r') as test_file, open(sys.argv[2], 'w') as res_file:
+      for line in test_file:
+        word_form = unicode(line, 'latin-1').strip()
 
-try:
-  with open(sys.argv[1], 'r') as test_file, open(sys.argv[2], 'w') as result_file:
-    for line in test_file:
-      word_form = unicode(line, 'latin-1').strip()
-      closest_form = ClosestKnownWordForm(word_form, word_form_tags.keys())
-      pos = word_form_tags[closest_form][1]
-      lemma = DeriveLemmaFirst(word_form, closest_form, word_form_tags[closest_form][0])
+        closest_form = ClosestKnownWordForm(word_form, reversed_word_forms)
+        if (0 < len(closest_form)):
+          pos = word_form_tags[closest_form][1]
+          lemma = DeriveLemmaFirst(word_form, closest_form, word_form_tags[closest_form][0])
+        else:
+          pos = "N"
+          lemma = word_form
 
-      print >> result_file, ("%s\t%s+%s") % (word_form.encode('latin-1'), lemma.encode('latin-1'), pos.encode('latin-1'))
-      result_file.flush()
-except IOError as error:
-  print "IOError: " + str(error)
-except Exception as excp:
-  print "Exception: " + str(excp)
+        print >> res_file, ("%s\t%s+%s") % (word_form.encode('latin-1'), lemma.encode('latin-1'), pos.encode('latin-1'))
+        res_file.flush()
+  except IOError as error:
+    print "IOError: " + str(error)
+  except Exception as excp:
+    print "Exception: " + str(excp)
+
+if (__name__ == "__main__"):
+  if (len(sys.argv) != 3):
+    print("%s <test_data_file> <result_file>") % (sys.argv[0])
+    quit()
+
+  main()
