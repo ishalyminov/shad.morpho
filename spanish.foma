@@ -1,7 +1,7 @@
 define C [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z];
 define V [a|á|e|é|i|í|ï|j|o|ó|º|u|ú|ü|y];
 define Stem [C^<3 V C^<3]+;
-
+define StemAdjO Stem [a | o | s];
 define Cleanup "^" -> 0;
 
 
@@ -186,7 +186,7 @@ define VerbIr StemOfVerbIr .o. ZCReplacement .o. AddIr;
 define VerbEr StemOfVerbEr .o. ZCReplacement .o. AddEr;
 define Verb [VerbAr | VerbEr | VerbIr] .o. Cleanup;
 
-define StemOfAdjO Stem [
+define StemOfAdjO StemAdjO [
 		["+A"]:["^" a ]    |
 		["+A"]:["^" a s ]  |
 		["+A"]:["^" o ]    |
