@@ -1,7 +1,7 @@
 define C [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z];
 define V [a|á|e|é|i|í|ï|j|o|ó|º|u|ú|ü|y];
 define Stem [C^<3 V C^<3]+;
-define StemAdjO Stem [a | o | s];
+
 define Cleanup "^" -> 0;
 
 
@@ -186,18 +186,87 @@ define VerbIr StemOfVerbIr .o. ZCReplacement .o. AddIr;
 define VerbEr StemOfVerbEr .o. ZCReplacement .o. AddEr;
 define Verb [VerbAr | VerbEr | VerbIr] .o. Cleanup;
 
-define StemOfAdjO StemAdjO [
-		["+A"]:["^" a ]    |
-		["+A"]:["^" a s ]  |
-		["+A"]:["^" o ]    |
-		["+A"]:["^" o s ]
-		] ;
-define AdjO StemOfAdjO .o. [ o -> 0 || _ "^" ] .o. Cleanup ;
-		
-define StemOfAdjL Stem [ ["+A"]:["^"] ] ;
-define AdjL StemOfAdjL .o. [ [..] -> es || l _ "^" ,, [..] -> 0 || l _ "^" ] .o. Cleanup;
+# BEGIN $ ADJ on {-al, il, ul, -ol}
+define AdjAL [ Stem [ ["+A"]:["^" a l] | ["+A"]:["^" a l e s] ] ] .o. [ a l -> 0 || _ "^" ] ;
+define AdjIL [ Stem [ ["+A"]:["^" i l] | ["+A"]:["^" i l e s] ] ] .o. [ i l -> 0 || _ "^" ] ;
+define AdjUL [ Stem [ ["+A"]:["^" u l] | ["+A"]:["^" u l e s] ] ] .o. [ u l -> 0 || _ "^" ] ;
+define AdjOL [ Stem [ ["+A"]:["^" o l] | ["+A"]:["^" o l e s] ] ] .o. [ o l -> 0 || _ "^" ] ;
 
-define Adj AdjO | AdjL;
+define AdjL [AdjAL | AdjIL | AdjUL | AdjOL];
+# END $ ADJ on {-al, il, ul, -ol}
+
+# BEGIN $ ADJ on {-ar, -er, -or}
+define StemOfAdjOR Stem [
+		["+A"]:["^" o r]     |
+		["+A"]:["^" o r a]   |
+		["+A"]:["^" o r a s] |
+		["+A"]:["^" o r e s]
+		] ;
+define AdjOR StemOfAdjOR .o. [ o r -> 0 || _ "^" ] ;
+
+define AdjAR [ Stem [ ["+A"]:["^" a r] | ["+A"]:["^" a r e s] ] ] .o. [ a r -> 0 || _ "^" ] ;
+define AdjER [ Stem [ ["+A"]:["^" e r] | ["+A"]:["^" e r e s] ] ] .o. [ e r -> 0 || _ "^" ] ;
+define AdjUR [ Stem [ ["+A"]:["^" u r] | ["+A"]:["^" u r e s] ] ] .o. [ u r -> 0 || _ "^" ] ;
+
+define AdjR [AdjOR | AdjAR | AdjER | AdjUR];
+# END $ ADJ on {-ar, -er, -or}
+
+define AdjO [ Stem [ ["+A"]:["^" a ] | ["+A"]:["^" a s ] | ["+A"]:["^" o ] | ["+A"]:["^" o s ] ] ] .o. [ o -> 0 || _ "^" ] ;
+		
+define AdjA [ Stem [ ["+A"]:["^" a] | ["+A"]:["^" a s] ] ] .o. [ a -> 0 || _ "^" ] ;
+define AdjE [ Stem [ ["+A"]:["^" e] | ["+A"]:["^" e s] ] ] .o. [ e -> 0 || _ "^" ] ;
+
+define AdjI  [ Stem [ ["+A"]:["^" i] | ["+A"]:["^" i s]                      ] ] .o. [ i -> 0 || _ "^" ] ;
+define AdjI1 [ Stem [ ["+A"]:["^" í] | ["+A"]:["^" í s] | ["+A"]:["^" í e s] ] ] .o. [ í -> 0 || _ "^" ] ;
+
+# BEGIN $ ADJ on {-n}
+define AdjAN [ Stem [ 
+	["+A"]:["^" á n] |
+	["+A"]:["^" a n a] |
+	["+A"]:["^" a n a s] |
+	["+A"]:["^" a n e s] |
+	["+A"]:["^" a n o s]
+	] ] .o. [ á n -> 0 || _ "^" ];
+
+define AdjIN [ Stem [ 
+	["+A"]:["^" í n] |
+	["+A"]:["^" i n a] |
+	["+A"]:["^" i n a s] |
+	["+A"]:["^" i n e s]
+	] ] .o. [ í n -> 0 || _ "^" ];
+
+define AdjON [ Stem [ 
+	["+A"]:["^" ó n] |
+	["+A"]:["^" o n a] |
+	["+A"]:["^" o n a s] |
+	["+A"]:["^" o n e s]
+	] ] .o. [ ó n -> 0 || _ "^" ];
+
+define AdjEN  [ Stem [ ["+A"]:["^" e n] | ["+A"]:["^" e n e s] ] ] .o. [ e n -> 0 || _ "^" ];
+define AdjE1N [ Stem [ ["+A"]:["^" é n] | ["+A"]:["^" é n e s] ] ] .o. [ é n -> 0 || _ "^" ];
+define AdjU1N [ Stem [ ["+A"]:["^" ú n] | ["+A"]:["^" u n e s] ] ] .o. [ ú n -> 0 || _ "^" ];
+
+define AdjN [AdjAN | AdjIN | AdjON | AdjEN | AdjE1N | AdjU1N];
+# END $ ADJ on {-n}
+
+# BEGIN $ ADJ on {-s}
+define AdjES [ Stem [ 
+	["+A"]:["^" é s] |
+	["+A"]:["^" e s a] |
+	["+A"]:["^" e s a s] |
+	["+A"]:["^" e s e s]
+	] ] .o. [ é s -> 0 || _ "^" ];
+# END $ ADJ on {-s}
+
+# BEGIN $ ADJ on {-z}
+define AdjAZ [ Stem [ ["+A"]:["^" a z] | ["+A"]:["^" a z e s] | ["+A"]:["^" a c e s] ] ] .o. [ a z -> 0 || _ "^" ] ;
+define AdjIZ [ Stem [ ["+A"]:["^" i z] | ["+A"]:["^" i z a s] | ["+A"]:["^" i c e s] ] ] .o. [ i z -> 0 || _ "^" ] ;
+
+define AdjZ [AdjAZ | AdjIZ];
+# END $ ADJ on {-z}
+
+# SUMM ALL ADJ
+define Adj [ AdjO | AdjL | AdjR | AdjA | AdjE | AdjI | AdjI1 | AdjN | AdjES | AdjZ] .o. Cleanup;
 
 #define V1Deletion  a r  -> 0 || _ "^" [  á b a m o s ];
 #define V2Deletion  e a b r i r  -> 0 || _ "^" [  a b i e r t a ];
