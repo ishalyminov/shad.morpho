@@ -10,8 +10,11 @@ def main():
             guess_forms[tokens[0]].append(tokens[1])
     
     for wordform in sorted(guess_forms.keys()):
-        stdout.write(wordform + '\t')
-        print ' '.join(guess_forms[wordform])
+		s = wordform + '\t' + ' '.join(guess_forms[wordform])
+		s = unicode(s, 'utf8').encode('latin-1')
+		print s
+		#stdout.write(wordform + '\t')
+		#print ' '.join(guess_forms[wordform])
 
 if __name__ == '__main__':
     main()
