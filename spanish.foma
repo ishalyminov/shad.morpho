@@ -1,6 +1,6 @@
-define C [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z];
+define C [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z|"-"];
 define V [a|á|e|é|i|í|ï|o|ó|º|u|ú|ü];
-define Stem [C^<3 V C^<3]+;
+define Stem [C^<4 V C^<5]+;
 
 ###############################################################################
 
@@ -61,6 +61,15 @@ define EndingVerbAr a r "^" -> [
 		 é       |
 		 é i s     |
 		 ó       ]            || _ .#. ;
+		 
+define EndingVerbZAR z a r "^" -> [
+	c e       |
+	c e m o s       |
+	c e n       |
+	c e s       |
+	c é       |
+	c é i s ]       || _ .#.;
+
 		
 define EndingVerbIr i r "^" -> [
 		 a       |
@@ -117,6 +126,62 @@ define EndingVerbIr i r "^" -> [
 		 í a n     |
 		 í a s     |
 		 í s      ]           || _ .#. ;
+		
+define EndingVerbI1r í r "^" -> [
+	i g a     |
+	i g a m o s     |
+	i g a n     |
+	i g a s     |
+	i g o     |
+	i g á i s     |
+	i r e m o s     |
+	i r á     |
+	i r á n     |
+	i r á s     |
+	i r é     |
+	i r é i s     |
+	i r í a     |
+	i r í a i s     |
+	i r í a m o s     |
+	i r í a n     |
+	i r í a s     |
+	y e     |
+	y e n     |
+	y e n d o     |
+	y e r a     |
+	y e r a i s     |
+	y e r a n     |
+	y e r a s     |
+	y e r e     |
+	y e r e i s     |
+	y e r e n     |
+	y e r e s     |
+	y e r o n     |
+	y e s     |
+	y e s e     |
+	y e s e i s     |
+	y e s e n     |
+	y e s e s     |
+	y é r a m o s     |
+	y é r e m o s     |
+	y é s e m o s     |
+	y ó     |
+	í     |
+	í a     |
+	í a i s     |
+	í a m o s     |
+	í a n     |
+	í a s     |
+	í d     |
+	í d a     |
+	í d a s     |
+	í d o     |
+	í d o s     |
+	í m o s     |
+	í r     |
+	í s     |
+	í s t e     |
+	í s t e i s ] || _ .#. ;
 		
 define EndingVerbEr e r "^" -> [
 		 a       |
@@ -175,11 +240,12 @@ define EndingVerbEr e r "^" -> [
 		 í a n     |
 		 í a s     ]         || _ .#. ;
 
-define ZCReplacement z -> c || _ "^" [ e | é ];
 define Verb StemVerb .o. [
 	EndingVerbAr | 
+	EndingVerbZAR |
 	EndingVerbEr | 
-	EndingVerbIr
+	EndingVerbIr |
+	EndingVerbI1r
 	];
 
 #############################################################################################
@@ -234,15 +300,6 @@ define EndingAdjN [ n "^" -> [n | n a | n a s | n e s]         || [i|o]     _ .#
 define EndingAdjS s "^" -> [s | s a | s a s | s e s] || [e|é] _ .#. ;
 define EndingAdjZ z "^" -> [z | z e s | c e s] || [a|i] _ .#. ;
 
-# BEGIN $ ADJ on {-s}
-#define AdjES [ Stem [ 
-#	["+A"]:["^" é s] |
-#	["+A"]:["^" e s a] |
-#	["+A"]:["^" e s a s] |
-#	["+A"]:["^" e s e s]
-#	] ] .o. [ é s -> 0 || _ "^" ];
-# END $ ADJ on {-s}
-
 # SUMM ALL ADJ
 define Adj StemAdj .o. [
 	EndingAdjL |
@@ -265,35 +322,50 @@ define EndingNounA a "^" -> [a | a s] || _ .#. ;
 define EndingNounA1 á "^" -> [á | á s] || _ .#. ;
 define EndingNounB b "^" -> b, b "^" -> b s || [e|m|o|u] _ ;
 define EndingNounC c "^" -> c, c "^" -> c s || [a|i|o|u] _ ;
-define EndingNounD [ d "^" -> d, d "^" -> d e s || [a|e|i|u] _ .#. ] |
-                   [ d "^" -> d, d "^" -> d s   || [n|r]     _ .#. ] ;
+define EndingNounD [ d "^" -> [d | d e s] || [d a|t a|e|i|u]       _ .#. ] |
+                   [ d "^" -> [d | d s  ] || [n|r|a u|e e|i e|a i] _ .#. ] ;
 #define EndingNounE  e "^" -> e, e "^" -> e s || [b|c|d|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|ü|v|y] _ ;
 define EndingNounE  e "^" -> [e | e s] || _ .#. ;
 define EndingNounE1 é "^" -> é, é "^" -> é s || [h|i|k|l|m|n|p|s|u] _ .#. ;
-define EndingNounF f "^" -> f, f "^" -> f s || [f|r] _ ;
+define EndingNounF [ f "^" -> [f | f s] || [f|r]   _ ] |
+                   [ f "^" -> f         || [l|i|ï] _ ] ;
 define EndingNounG g "^" -> g, g "^" -> g s || [a|n|r] _ ;
 define EndingNounH h "^" -> h, h "^" -> h e s || [c|t] _ ;
 define EndingNounI  i "^" -> i, i "^" -> i s || [a|d|k|l|n|p|r|s|t|u|z] _ .#. ;
 define EndingNounI1 í "^" -> í, í "^" -> í e s || [b|c|d|f|h|l|m|n|r|t|u] _ .#. ;
 define EndingNounJ  j "^" -> j, j "^" -> j e s || o _ ;
 define EndingNounK k "^" -> k, k "^" -> k s || [a|c|u] _ ;
-define EndingNounL [ l "^" -> l, l "^" -> l e s || [a|e|h|i|o|t|u|w] _ .#. ] |
-                   [ l "^" -> l, l "^" -> l s   || [l|r|w]           _ .#. ] ;
-define EndingNounM m "^" -> m, m "^" -> m s || [a|e|u] _ ;
-define EndingNounN  n "^" -> n, n "^" -> n s || [a|e|i|r|w] _ ;
-define EndingNounI1N í n "^" -> í n,
-                     í n "^" -> i n a,
-					 í n "^" -> i n a s,
-					 í n "^" -> i n e s  || _ .#. ;
-define EndingNounN2 n "^" -> n, n "^" -> n a s || [á|í] _ ;
+define EndingNounL [ l "^" -> [l | l e s] || [a|e|h|i|o|t|u|w] _ .#. ] |
+                   [ l "^" -> [l | l s]   || [l|r|w]           _ .#. ] ;
+
+define EndingNounM m "^" -> [m | m s | m e s] || [a|e|l|o|u] _ .#.;
+
+define EndingNounN  [ n "^" -> [n | n s]   || [a|e|i|r|w] _ .#. ] |
+                    [ n "^" -> [n | n a s] || [á|í]       _ .#. ] ;
+
+define EndingNounI1N í n "^" -> [í n | i n a | i n a s | i n e s] || _ .#. ;
+
+define EndingNounON [ o n "^" -> [o n | o n e s ]        || [e|i|n|r] _ .#. ] |
+                    [ o n "^" -> [o n | o n e s | o n s] || [l|s|t]   _ .#. ] ;
+
+define EndingNounO1N [ ó n "^" -> [ó n | o n e s ]                  || [a|f|n|ñ|p|y] _ .#.                 ] |
+                     [ ó n "^" -> [ó n | o n e s | o n a | o n a s] || [b|c|d|e|g|h|j|l|m|r|s|t|v|z] _ .#. ] |
+                     [ ó n "^" -> [ó n | ó n e s | o n e s]         || i _ .#.                             ] ;
+
 #define EndingNounO o "^" -> [o | o s | a | a s] || [a|b|c|d|e|f|g|h|i|í|j|l|m|n|ñ|p|r|s|t|u|ú|v|y|z] _ ;
-define EndingNounO o "^" -> [o | o s | a | a s] || _ .#. ;
-define EndingNounP p "^" -> [p | p s] || [m|o] _ .#. ;
+define EndingNounO [o "^" -> [o | o s | a | a s] ||       _ .#. ] |
+                   [ó "^" -> [ó | ó s | o s]     || d     _ .#. ] |
+                   [ó "^" -> [ó | ó s ]          || [p|z] _ .#. ] |
+                   [e ó "^" -> [e ó | e ó s ]    ||       _ .#. ] |
+                   [ó "^" -> [ó | ó s | o e s]   || [u r] _ .#. ] ;
+define EndingNounP [ p "^" -> [p | p s]   || [a|i|m|o|l e] _ .#. ] |
+                   [ p "^" -> [p | p e s] || [l e|l o|i]   _ .#. ] ;
 define EndingNounR r "^" -> [r | r s | r e s | r a s] || _ .#. ;
-define EndingNounS s "^" -> [s | e s] || _ .#. ;
+#define EndingNounS s "^" -> [s | e s] || [a|á|e|é|i|í|o|u] _ .#. ;
 define EndingNounT t "^" -> [t | t s | t e s] || _ .#. ;
 define EndingNounU  u "^" -> [u | u s] || _ .#. ;
 define EndingNounU1 ú "^" -> [ú | ú s | ú e s | ú s e s] || _ .#. ;
+define EndingNounW w "^" -> [w | w s] || _ .#. ;
 define EndingNounX x "^" -> [x | x e s] || _ .#. ;
 define EndingNounY y "^" -> [y | y s | y e s] || _ .#. ;
 define EndingNounZ z "^" -> [z | z a | c e s] || _ .#. ;
@@ -318,7 +390,8 @@ define Noun StemNoun .o. [
 	EndingNounM | 
 	EndingNounN | 
 	EndingNounI1N | 
-	EndingNounN2 |
+	EndingNounON |
+	EndingNounO1N |
 	EndingNounO |
 	EndingNounP |
 	EndingNounR |
@@ -326,6 +399,7 @@ define Noun StemNoun .o. [
 	EndingNounT |
 	EndingNounU |
 	EndingNounU1 |
+	EndingNounW |
 	EndingNounX |
 	EndingNounY |
 	EndingNounZ
@@ -333,4 +407,4 @@ define Noun StemNoun .o. [
 
 ###########################################################################################################
 
-regex Noun | Verb | Adj;
+regex [Noun | Verb | Adj];
