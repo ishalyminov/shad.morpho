@@ -1,6 +1,7 @@
-SET ISO8859-1
 TRY aersoinltcdmubpágízfvhéjqóñxyúükCMAIESPGJBRFTDVHUOwLKNZÁYXÜÓÚÉÑQWÍ
 
+WORDCHARS .-
+SUGSWITHDOTS
 
 SFX A Y 13200
 SFX A		 al		 al		aboral
